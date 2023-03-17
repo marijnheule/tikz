@@ -1,0 +1,373 @@
+\documentclass[tikz,border=3pt]{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{automata}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\usepackage{xspace}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes}
+
+\definecolor{xred}{rgb}{0.77, 0.12, 0.23}
+\definecolor{xgreen}{rgb}{0.3, 0.6, 0}
+
+\definecolor{xblue}{rgb}{0., 0.25, 1}
+
+\newcommand{\ca}{\fill[black] (0,0) circle (3.5pt);}
+\newcommand{\cc}{\fill[white] (0,0) circle (3.5pt);}
+\newcommand{\cb}{\fill[xred] (0,0) circle (3.5pt);}
+\newcommand{\cd}{\fill[xgreen] (0,0) circle (3.5pt);}
+
+\newcommand{\caa}{\fill[black] (0,0) circle (2pt);}
+\newcommand{\ccc}{\fill[white] (0,0) circle (2pt);}
+\newcommand{\cbb}{\fill[xred] (0,0) circle (2pt);}
+\newcommand{\cdd}{\fill[xgreen] (0,0) circle (2pt);}
+
+\newcommand{\cee}{\fill[black] (0,0) circle (2pt);
+				\fill[xred] (0,0) -- (135:2pt) arc (135:315:2pt) -- cycle;}
+\newcommand{\cff}{\fill[white] (0,0) circle (2pt);
+				\fill[xgreen] (0,0) -- (135:2pt) arc (135:315:2pt) -- cycle;}
+
+\newcommand{\ce}{\fill[white] (0,0) circle (2pt);
+                                \fill[xred] (0,0) -- (45:2pt) arc (45:135:2pt) -- cycle; 
+                                \fill[black] (0,0) -- (135:2pt) arc (135:225:2pt) -- cycle; 
+                                \fill[xgreen] (0,0) -- (225:2pt) arc (225:315:2pt) -- cycle;}
+
+\newcommand{\cf}{\fill[black] (0,0) circle (2pt);}
+\newcommand{\cg}{\fill[white] (0,0) circle (2pt);}
+
+\newcommand{\ch}{\fill[white] (0,0) circle (2pt);
+                                \fill[xred] (0,0) -- (60:2pt) arc (60:180:2pt) -- cycle; 
+                                \fill[xgreen] (0,0) -- (180:2pt) arc (180:300:2pt) -- cycle;}
+
+\newcommand{\cz}{\shade [shading = color wheel white center] (0,0) circle (3.5pt);}
+
+
+\newcommand{\dicea}[6]{
+  \fill [lightgray] (#1+0.0175,#2+0.0175) rectangle (#1+.9875,#2+.9875);
+  \begin{scope}[shift={(#1+0.2,#2+0.8)}]{#3}\end{scope}
+  \begin{scope}[shift={(#1+0.5,#2+0.8)}]{#4}\end{scope}
+  \begin{scope}[shift={(#1+0.8,#2+0.8)}]{#5}\end{scope}
+  \begin{scope}[shift={(#1+0.35,#2+0.5)}]{#6}\end{scope}
+}
+
+\newcommand{\diceb}[6]{
+  \begin{scope}[shift={(#1+0.65,#2+0.5)}]{#3}\end{scope}
+  \begin{scope}[shift={(#1+0.2,#2+0.2)}]{#4}\end{scope}
+  \begin{scope}[shift={(#1+0.5,#2+0.2)}]{#5}\end{scope}
+  \begin{scope}[shift={(#1+0.8,#2+0.2)}]{#6}\end{scope}
+}
+
+%\newcommand{\dicec}[9]{
+%  \draw[fill=white, lightgray] (#1+0.02,#2+0.02) rectangle (#1+.98,#2+.98);
+%  \begin{scope}[shift={(#1+0.35,#2+0.8)}]{#3}\end{scope}
+%  \begin{scope}[shift={(#1+0.65,#2+0.8)}]{#4}\end{scope}
+%  \begin{scope}[shift={(#1+0.2,#2+0.5)}]{#5}\end{scope}
+%  \begin{scope}[shift={(#1+0.5,#2+0.5)}]{#6}\end{scope}
+%  \begin{scope}[shift={(#1+0.8,#2+0.5)}]{#7}\end{scope}
+%  \begin{scope}[shift={(#1+0.35,#2+0.2)}]{#8}\end{scope}
+%  \begin{scope}[shift={(#1+0.65,#2+0.2)}]{#9}\end{scope}
+%}
+%
+%\newcommand{\dicet}[2]{
+%  \begin{tikzpicture}[anchor=center,scale=2]
+%  \draw[fill=lightgray,draw=none] (-0.26,-0.26) rectangle (0.26,0.26);
+%  \begin{scope}[shift={(0.11,0.11)}]{#1}\end{scope}
+%  \begin{scope}[shift={(-0.11,-0.11)}]{#2}\end{scope}
+%
+%  \end{tikzpicture}
+%}
+%
+%\newcommand{\dicev}[2]{
+%  \begin{tikzpicture}[anchor=center,scale=2]
+%  \draw[fill=lightgray,draw=none] (-0.26,-0.26) rectangle (0.26,0.26);
+%  \begin{scope}[shift={(0.11,0.11)}]{#1}\end{scope}
+%  \begin{scope}[shift={(-0.11,0.11)}]{#2}\end{scope}
+%
+%  \end{tikzpicture}
+%}
+%
+%\newcommand{\diceu}[2]{
+%  \begin{tikzpicture}[anchor=center]
+%  \draw[fill=lightgray,draw=none] (-0.26,-0.26) rectangle (0.26,0.26);
+%  \begin{scope}[shift={(0.11,0.11)}]{#1}\end{scope}
+%  \begin{scope}[shift={(-0.11,-0.11)}]{#2}\end{scope}
+%
+%%  \filldraw[#1] (0.11,0.11) circle (2pt);
+%% \filldraw[#2] (-0.11,-0.11) circle (2pt);
+%  \end{tikzpicture}
+%}
+
+
+\begin{document}
+
+
+\begin{tikzpicture}[scale=1]
+
+
+%\draw[fill=white,white] (-0.03,-0.03) rectangle (16.03,16.03);
+
+\dicea{0}{0}{\ca}{\ca}{\ca}{\ca}\diceb{0}{0}{\ca}{\ca}{\ca}{\ca}
+\dicea{1}{0}{\cc}{\cb}{\ca}{\ca}\diceb{1}{0}{\ca}{\ca}{\ca}{\ca}
+\dicea{2}{0}{\ca}{\cc}{\ca}{\cb}\diceb{2}{0}{\cb}{\cb}{\cb}{\ca}
+\dicea{3}{0}{\cc}{\cd}{\cb}{\ca}\diceb{3}{0}{\ca}{\cb}{\cb}{\cb}
+\dicea{4}{0}{\cb}{\cb}{\cc}{\cb}\diceb{4}{0}{\cb}{\cb}{\ca}{\ca}
+\dicea{5}{0}{\cd}{\cb}{\cc}{\cb}\diceb{5}{0}{\cb}{\cb}{\ca}{\cb}
+\dicea{6}{0}{\ca}{\cd}{\cc}{\cb}\diceb{6}{0}{\cb}{\cb}{\ca}{\cb}
+\dicea{7}{0}{\cc}{\cd}{\cd}{\ca}\diceb{7}{0}{\ca}{\cb}{\ca}{\cb}
+\dicea{8}{0}{\cb}{\ca}{\ca}{\cc}\diceb{8}{0}{\cb}{\ca}{\cb}{\cb}
+\dicea{9}{0}{\cd}{\ca}{\ca}{\cc}\diceb{9}{0}{\ca}{\ca}{\cb}{\cb}
+\dicea{10}{0}{\ca}{\cc}{\cb}{\cd}\diceb{10}{0}{\cb}{\ca}{\cb}{\ca}
+\dicea{11}{0}{\cc}{\cc}{\ca}{\cc}\diceb{11}{0}{\cb}{\ca}{\cb}{\cb}
+\dicea{12}{0}{\ca}{\ca}{\cc}{\cd}\diceb{12}{0}{\ca}{\ca}{\ca}{\ca}
+\dicea{13}{0}{\cc}{\cb}{\cc}{\cd}\diceb{13}{0}{\ca}{\ca}{\ca}{\ca}
+\dicea{14}{0}{\ca}{\cc}{\cd}{\cd}\diceb{14}{0}{\cb}{\cb}{\cb}{\ca}
+\dicea{15}{0}{\cc}{\cd}{\cc}{\cc}\diceb{15}{0}{\ca}{\cb}{\cb}{\cb}
+\dicea{0}{1}{\cb}{\ca}{\ca}{\ca}\diceb{0}{1}{\cc}{\ca}{\ca}{\ca}
+\dicea{1}{1}{\cd}{\ca}{\ca}{\cb}\diceb{1}{1}{\cc}{\cb}{\cb}{\cb}
+\dicea{2}{1}{\ca}{\cc}{\cb}{\ca}\diceb{2}{1}{\cd}{\cb}{\cb}{\ca}
+\dicea{3}{1}{\cc}{\cc}{\ca}{\ca}\diceb{3}{1}{\cc}{\ca}{\ca}{\ca}
+\dicea{4}{1}{\ca}{\ca}{\cc}{\cb}\diceb{4}{1}{\cd}{\cb}{\ca}{\cb}
+\dicea{5}{1}{\cc}{\cb}{\cc}{\cb}\diceb{5}{1}{\cd}{\cb}{\ca}{\cb}
+\dicea{6}{1}{\ca}{\cc}{\cd}{\ca}\diceb{6}{1}{\cd}{\cb}{\ca}{\ca}
+\dicea{7}{1}{\cc}{\cd}{\cc}{\cb}\diceb{7}{1}{\cc}{\cb}{\ca}{\cb}
+\dicea{8}{1}{\cb}{\cb}{\ca}{\cc}\diceb{8}{1}{\cd}{\ca}{\cb}{\ca}
+\dicea{9}{1}{\cd}{\ca}{\cb}{\cd}\diceb{9}{1}{\cc}{\ca}{\cb}{\cb}
+\dicea{10}{1}{\cb}{\cd}{\ca}{\cc}\diceb{10}{1}{\cd}{\ca}{\cb}{\cb}
+\dicea{11}{1}{\cd}{\cc}{\ca}{\cc}\diceb{11}{1}{\cd}{\ca}{\cb}{\cb}
+\dicea{12}{1}{\cb}{\ca}{\cc}{\cd}\diceb{12}{1}{\cc}{\ca}{\ca}{\ca}
+\dicea{13}{1}{\cd}{\ca}{\cd}{\cd}\diceb{13}{1}{\cc}{\cb}{\cb}{\cb}
+\dicea{14}{1}{\ca}{\cc}{\cc}{\cc}\diceb{14}{1}{\cd}{\cb}{\cb}{\ca}
+\dicea{15}{1}{\cc}{\cc}{\cc}{\cd}\diceb{15}{1}{\cc}{\ca}{\ca}{\ca}
+\dicea{0}{2}{\ca}{\ca}{\ca}{\cb}\diceb{0}{2}{\ca}{\cc}{\ca}{\ca}
+\dicea{1}{2}{\cc}{\cb}{\ca}{\cb}\diceb{1}{2}{\ca}{\cc}{\ca}{\ca}
+\dicea{2}{2}{\ca}{\cc}{\cb}{\cb}\diceb{2}{2}{\cb}{\cd}{\cb}{\ca}
+\dicea{3}{2}{\cc}{\cd}{\ca}{\ca}\diceb{3}{2}{\ca}{\cd}{\cb}{\cb}
+\dicea{4}{2}{\cb}{\ca}{\cc}{\cb}\diceb{4}{2}{\cb}{\cd}{\ca}{\cb}
+\dicea{5}{2}{\cd}{\ca}{\cc}{\cb}\diceb{5}{2}{\ca}{\cd}{\ca}{\cb}
+\dicea{6}{2}{\ca}{\cc}{\cd}{\ca}\diceb{6}{2}{\cb}{\cd}{\ca}{\ca}
+\dicea{7}{2}{\cc}{\cc}{\cc}{\cb}\diceb{7}{2}{\cb}{\cd}{\ca}{\cb}
+\dicea{8}{2}{\cb}{\cb}{\cb}{\cd}\diceb{8}{2}{\cb}{\cc}{\cb}{\ca}
+\dicea{9}{2}{\cd}{\cb}{\cb}{\cd}\diceb{9}{2}{\cb}{\cc}{\cb}{\cb}
+\dicea{10}{2}{\ca}{\cd}{\cb}{\cd}\diceb{10}{2}{\cb}{\cc}{\cb}{\cb}
+\dicea{11}{2}{\cc}{\cd}{\ca}{\cc}\diceb{11}{2}{\ca}{\cc}{\cb}{\cb}
+\dicea{12}{2}{\ca}{\ca}{\cd}{\cd}\diceb{12}{2}{\ca}{\cc}{\ca}{\ca}
+\dicea{13}{2}{\cc}{\cb}{\cd}{\cd}\diceb{13}{2}{\ca}{\cc}{\ca}{\ca}
+\dicea{14}{2}{\ca}{\cc}{\cd}{\cc}\diceb{14}{2}{\cb}{\cd}{\cb}{\ca}
+\dicea{15}{2}{\cc}{\cd}{\cc}{\cd}\diceb{15}{2}{\ca}{\cd}{\cb}{\cb}
+\dicea{0}{3}{\cb}{\ca}{\ca}{\cb}\diceb{0}{3}{\cc}{\cc}{\ca}{\ca}
+\dicea{1}{3}{\cd}{\ca}{\cb}{\cb}\diceb{1}{3}{\cc}{\cd}{\cb}{\cb}
+\dicea{2}{3}{\ca}{\cc}{\ca}{\ca}\diceb{2}{3}{\cd}{\cd}{\cb}{\ca}
+\dicea{3}{3}{\cc}{\cc}{\ca}{\cb}\diceb{3}{3}{\cc}{\cc}{\ca}{\ca}
+\dicea{4}{3}{\cb}{\cb}{\cc}{\cb}\diceb{4}{3}{\cd}{\cd}{\ca}{\ca}
+\dicea{5}{3}{\cd}{\ca}{\cd}{\ca}\diceb{5}{3}{\cc}{\cd}{\ca}{\cb}
+\dicea{6}{3}{\cb}{\cd}{\cc}{\cb}\diceb{6}{3}{\cd}{\cd}{\ca}{\cb}
+\dicea{7}{3}{\cd}{\cc}{\cc}{\cb}\diceb{7}{3}{\cd}{\cd}{\ca}{\cb}
+\dicea{8}{3}{\ca}{\ca}{\cb}{\cd}\diceb{8}{3}{\cd}{\cc}{\cb}{\cb}
+\dicea{9}{3}{\cc}{\cb}{\cb}{\cd}\diceb{9}{3}{\cd}{\cc}{\cb}{\cb}
+\dicea{10}{3}{\ca}{\cc}{\ca}{\cc}\diceb{10}{3}{\cd}{\cc}{\cb}{\ca}
+\dicea{11}{3}{\cc}{\cd}{\cb}{\cd}\diceb{11}{3}{\cc}{\cc}{\cb}{\cb}
+\dicea{12}{3}{\cb}{\ca}{\cd}{\cd}\diceb{12}{3}{\cc}{\cc}{\ca}{\ca}
+\dicea{13}{3}{\cd}{\ca}{\cd}{\cc}\diceb{13}{3}{\cc}{\cd}{\cb}{\cb}
+\dicea{14}{3}{\ca}{\cc}{\cc}{\cd}\diceb{14}{3}{\cd}{\cd}{\cb}{\ca}
+\dicea{15}{3}{\cc}{\cc}{\cd}{\cd}\diceb{15}{3}{\cc}{\cc}{\ca}{\ca}
+\dicea{0}{4}{\ca}{\ca}{\cb}{\ca}\diceb{0}{4}{\ca}{\ca}{\cc}{\ca}
+\dicea{1}{4}{\cc}{\cb}{\cb}{\ca}\diceb{1}{4}{\ca}{\ca}{\cc}{\ca}
+\dicea{2}{4}{\ca}{\cc}{\ca}{\ca}\diceb{2}{4}{\cb}{\cb}{\cd}{\ca}
+\dicea{3}{4}{\cc}{\cd}{\cb}{\cb}\diceb{3}{4}{\ca}{\cb}{\cd}{\cb}
+\dicea{4}{4}{\cb}{\ca}{\cd}{\ca}\diceb{4}{4}{\cb}{\cb}{\cc}{\cb}
+\dicea{5}{4}{\cd}{\ca}{\cd}{\ca}\diceb{5}{4}{\ca}{\cb}{\cc}{\cb}
+\dicea{6}{4}{\ca}{\cc}{\cc}{\cb}\diceb{6}{4}{\cb}{\cb}{\cc}{\ca}
+\dicea{7}{4}{\cc}{\cc}{\cd}{\ca}\diceb{7}{4}{\cb}{\cb}{\cc}{\cb}
+\dicea{8}{4}{\cb}{\cb}{\ca}{\cc}\diceb{8}{4}{\cb}{\ca}{\cd}{\ca}
+\dicea{9}{4}{\cd}{\cb}{\ca}{\cc}\diceb{9}{4}{\cb}{\ca}{\cd}{\cb}
+\dicea{10}{4}{\ca}{\cd}{\ca}{\cc}\diceb{10}{4}{\cb}{\ca}{\cd}{\cb}
+\dicea{11}{4}{\cc}{\cd}{\cb}{\cd}\diceb{11}{4}{\ca}{\ca}{\cd}{\cb}
+\dicea{12}{4}{\ca}{\ca}{\cc}{\cc}\diceb{12}{4}{\ca}{\ca}{\cc}{\ca}
+\dicea{13}{4}{\cc}{\cb}{\cc}{\cc}\diceb{13}{4}{\ca}{\ca}{\cc}{\ca}
+\dicea{14}{4}{\ca}{\cc}{\cc}{\cd}\diceb{14}{4}{\cb}{\cb}{\cd}{\ca}
+\dicea{15}{4}{\cc}{\cd}{\cd}{\cc}\diceb{15}{4}{\ca}{\cb}{\cd}{\cb}
+\dicea{0}{5}{\cb}{\ca}{\cb}{\ca}\diceb{0}{5}{\cc}{\ca}{\cc}{\ca}
+\dicea{1}{5}{\cd}{\ca}{\ca}{\ca}\diceb{1}{5}{\cc}{\cb}{\cd}{\cb}
+\dicea{2}{5}{\ca}{\cc}{\cb}{\cb}\diceb{2}{5}{\cd}{\cb}{\cd}{\ca}
+\dicea{3}{5}{\cc}{\cc}{\cb}{\ca}\diceb{3}{5}{\cc}{\ca}{\cc}{\ca}
+\dicea{4}{5}{\cb}{\cb}{\cd}{\ca}\diceb{4}{5}{\cd}{\cb}{\cc}{\ca}
+\dicea{5}{5}{\cd}{\ca}{\cc}{\cb}\diceb{5}{5}{\cc}{\cb}{\cc}{\cb}
+\dicea{6}{5}{\cb}{\cd}{\cd}{\ca}\diceb{6}{5}{\cd}{\cb}{\cc}{\cb}
+\dicea{7}{5}{\cd}{\cc}{\cd}{\ca}\diceb{7}{5}{\cd}{\cb}{\cc}{\cb}
+\dicea{8}{5}{\ca}{\ca}{\ca}{\cc}\diceb{8}{5}{\cd}{\ca}{\cd}{\cb}
+\dicea{9}{5}{\cc}{\cb}{\ca}{\cc}\diceb{9}{5}{\cd}{\ca}{\cd}{\cb}
+\dicea{10}{5}{\ca}{\cc}{\cb}{\cd}\diceb{10}{5}{\cd}{\ca}{\cd}{\ca}
+\dicea{11}{5}{\cc}{\cd}{\ca}{\cc}\diceb{11}{5}{\cc}{\ca}{\cd}{\cb}
+\dicea{12}{5}{\cb}{\ca}{\cc}{\cc}\diceb{12}{5}{\cc}{\ca}{\cc}{\ca}
+\dicea{13}{5}{\cd}{\ca}{\cc}{\cd}\diceb{13}{5}{\cc}{\cb}{\cd}{\cb}
+\dicea{14}{5}{\ca}{\cc}{\cd}{\cc}\diceb{14}{5}{\cd}{\cb}{\cd}{\ca}
+\dicea{15}{5}{\cc}{\cc}{\cc}{\cc}\diceb{15}{5}{\cc}{\ca}{\cc}{\ca}
+\dicea{0}{6}{\ca}{\ca}{\cb}{\cb}\diceb{0}{6}{\ca}{\cc}{\cc}{\ca}
+\dicea{1}{6}{\cc}{\cb}{\cb}{\cb}\diceb{1}{6}{\ca}{\cc}{\cc}{\ca}
+\dicea{2}{6}{\ca}{\cc}{\cb}{\ca}\diceb{2}{6}{\cb}{\cd}{\cd}{\ca}
+\dicea{3}{6}{\cc}{\cd}{\ca}{\cb}\diceb{3}{6}{\ca}{\cd}{\cd}{\cb}
+\dicea{4}{6}{\cb}{\cb}{\cd}{\ca}\diceb{4}{6}{\cb}{\cd}{\cc}{\ca}
+\dicea{5}{6}{\cd}{\cb}{\cd}{\ca}\diceb{5}{6}{\cb}{\cd}{\cc}{\cb}
+\dicea{6}{6}{\ca}{\cd}{\cd}{\ca}\diceb{6}{6}{\cb}{\cd}{\cc}{\cb}
+\dicea{7}{6}{\cc}{\cd}{\cc}{\cb}\diceb{7}{6}{\ca}{\cd}{\cc}{\cb}
+\dicea{8}{6}{\cb}{\ca}{\cb}{\cd}\diceb{8}{6}{\cb}{\cc}{\cd}{\cb}
+\dicea{9}{6}{\cd}{\ca}{\cb}{\cd}\diceb{9}{6}{\ca}{\cc}{\cd}{\cb}
+\dicea{10}{6}{\ca}{\cc}{\ca}{\cc}\diceb{10}{6}{\cb}{\cc}{\cd}{\ca}
+\dicea{11}{6}{\cc}{\cc}{\cb}{\cd}\diceb{11}{6}{\cb}{\cc}{\cd}{\cb}
+\dicea{12}{6}{\ca}{\ca}{\cd}{\cc}\diceb{12}{6}{\ca}{\cc}{\cc}{\ca}
+\dicea{13}{6}{\cc}{\cb}{\cd}{\cc}\diceb{13}{6}{\ca}{\cc}{\cc}{\ca}
+\dicea{14}{6}{\ca}{\cc}{\cc}{\cc}\diceb{14}{6}{\cb}{\cd}{\cd}{\ca}
+\dicea{15}{6}{\cc}{\cd}{\cd}{\cd}\diceb{15}{6}{\ca}{\cd}{\cd}{\cb}
+\dicea{0}{7}{\cb}{\ca}{\cb}{\cb}\diceb{0}{7}{\cc}{\cc}{\cc}{\ca}
+\dicea{1}{7}{\cd}{\ca}{\cb}{\ca}\diceb{1}{7}{\cc}{\cd}{\cd}{\cb}
+\dicea{2}{7}{\ca}{\cc}{\ca}{\cb}\diceb{2}{7}{\cd}{\cd}{\cd}{\ca}
+\dicea{3}{7}{\cc}{\cc}{\cb}{\cb}\diceb{3}{7}{\cc}{\cc}{\cc}{\ca}
+\dicea{4}{7}{\ca}{\ca}{\cd}{\ca}\diceb{4}{7}{\cd}{\cd}{\cc}{\cb}
+\dicea{5}{7}{\cc}{\cb}{\cd}{\ca}\diceb{5}{7}{\cd}{\cd}{\cc}{\cb}
+\dicea{6}{7}{\ca}{\cc}{\cc}{\cb}\diceb{6}{7}{\cd}{\cd}{\cc}{\ca}
+\dicea{7}{7}{\cc}{\cd}{\cd}{\ca}\diceb{7}{7}{\cc}{\cd}{\cc}{\cb}
+\dicea{8}{7}{\cb}{\cb}{\cb}{\cd}\diceb{8}{7}{\cd}{\cc}{\cd}{\ca}
+\dicea{9}{7}{\cd}{\ca}{\ca}{\cc}\diceb{9}{7}{\cc}{\cc}{\cd}{\cb}
+\dicea{10}{7}{\cb}{\cd}{\cb}{\cd}\diceb{10}{7}{\cd}{\cc}{\cd}{\cb}
+\dicea{11}{7}{\cd}{\cc}{\cb}{\cd}\diceb{11}{7}{\cd}{\cc}{\cd}{\cb}
+\dicea{12}{7}{\cb}{\ca}{\cd}{\cc}\diceb{12}{7}{\cc}{\cc}{\cc}{\ca}
+\dicea{13}{7}{\cd}{\ca}{\cc}{\cc}\diceb{13}{7}{\cc}{\cd}{\cd}{\cb}
+\dicea{14}{7}{\ca}{\cc}{\cd}{\cd}\diceb{14}{7}{\cd}{\cd}{\cd}{\ca}
+\dicea{15}{7}{\cc}{\cc}{\cd}{\cc}\diceb{15}{7}{\cc}{\cc}{\cc}{\ca}
+\dicea{0}{8}{\cb}{\cb}{\cb}{\ca}\diceb{0}{8}{\cb}{\cb}{\cb}{\cc}
+\dicea{1}{8}{\cd}{\cb}{\ca}{\ca}\diceb{1}{8}{\ca}{\ca}{\ca}{\cc}
+\dicea{2}{8}{\ca}{\cd}{\ca}{\ca}\diceb{2}{8}{\ca}{\ca}{\ca}{\cc}
+\dicea{3}{8}{\cc}{\cd}{\ca}{\cb}\diceb{3}{8}{\ca}{\cb}{\cb}{\cd}
+\dicea{4}{8}{\cb}{\cb}{\cd}{\ca}\diceb{4}{8}{\cb}{\cb}{\ca}{\cc}
+\dicea{5}{8}{\cd}{\ca}{\cc}{\cb}\diceb{5}{8}{\ca}{\cb}{\ca}{\cd}
+\dicea{6}{8}{\cb}{\cd}{\cc}{\cb}\diceb{6}{8}{\cb}{\cb}{\ca}{\cd}
+\dicea{7}{8}{\cd}{\cc}{\cc}{\cb}\diceb{7}{8}{\cb}{\cb}{\ca}{\cd}
+\dicea{8}{8}{\ca}{\ca}{\ca}{\cc}\diceb{8}{8}{\cb}{\ca}{\cb}{\cd}
+\dicea{9}{8}{\cc}{\cb}{\ca}{\cc}\diceb{9}{8}{\cb}{\ca}{\cb}{\cd}
+\dicea{10}{8}{\ca}{\cc}{\ca}{\cc}\diceb{10}{8}{\cb}{\ca}{\cb}{\cc}
+\dicea{11}{8}{\cc}{\cd}{\cb}{\cd}\diceb{11}{8}{\ca}{\ca}{\cb}{\cd}
+\dicea{12}{8}{\cb}{\cb}{\cc}{\cc}\diceb{12}{8}{\cb}{\cb}{\cb}{\cc}
+\dicea{13}{8}{\cd}{\cb}{\cc}{\cd}\diceb{13}{8}{\ca}{\ca}{\ca}{\cc}
+\dicea{14}{8}{\ca}{\cd}{\cc}{\cd}\diceb{14}{8}{\ca}{\ca}{\ca}{\cc}
+\dicea{15}{8}{\cc}{\cd}{\cd}{\cd}\diceb{15}{8}{\ca}{\cb}{\cb}{\cd}
+\dicea{0}{9}{\cb}{\cb}{\ca}{\cb}\diceb{0}{9}{\cd}{\cb}{\cb}{\cc}
+\dicea{1}{9}{\cd}{\ca}{\cb}{\ca}\diceb{1}{9}{\cc}{\cb}{\cb}{\cd}
+\dicea{2}{9}{\cb}{\cd}{\ca}{\ca}\diceb{2}{9}{\cc}{\ca}{\ca}{\cc}
+\dicea{3}{9}{\cd}{\cc}{\ca}{\ca}\diceb{3}{9}{\cc}{\ca}{\ca}{\cc}
+\dicea{4}{9}{\cb}{\ca}{\cc}{\cb}\diceb{4}{9}{\cd}{\cb}{\ca}{\cd}
+\dicea{5}{9}{\cd}{\ca}{\cd}{\ca}\diceb{5}{9}{\cc}{\cb}{\ca}{\cd}
+\dicea{6}{9}{\ca}{\cc}{\cc}{\cb}\diceb{6}{9}{\cd}{\cb}{\ca}{\cc}
+\dicea{7}{9}{\cc}{\cc}{\cc}{\cb}\diceb{7}{9}{\cd}{\cb}{\ca}{\cd}
+\dicea{8}{9}{\cb}{\cb}{\cb}{\cd}\diceb{8}{9}{\cd}{\ca}{\cb}{\cc}
+\dicea{9}{9}{\cd}{\cb}{\ca}{\cc}\diceb{9}{9}{\cd}{\ca}{\cb}{\cd}
+\dicea{10}{9}{\ca}{\cd}{\ca}{\cc}\diceb{10}{9}{\cd}{\ca}{\cb}{\cd}
+\dicea{11}{9}{\cc}{\cd}{\ca}{\cc}\diceb{11}{9}{\cc}{\ca}{\cb}{\cd}
+\dicea{12}{9}{\cb}{\cb}{\cd}{\cd}\diceb{12}{9}{\cd}{\cb}{\cb}{\cc}
+\dicea{13}{9}{\cd}{\ca}{\cc}{\cc}\diceb{13}{9}{\cc}{\cb}{\cb}{\cd}
+\dicea{14}{9}{\cb}{\cd}{\cc}{\cd}\diceb{14}{9}{\cc}{\ca}{\ca}{\cc}
+\dicea{15}{9}{\cd}{\cc}{\cc}{\cd}\diceb{15}{9}{\cc}{\ca}{\ca}{\cc}
+\dicea{0}{10}{\cb}{\cb}{\ca}{\ca}\diceb{0}{10}{\cb}{\cd}{\cb}{\cc}
+\dicea{1}{10}{\cd}{\cb}{\ca}{\cb}\diceb{1}{10}{\ca}{\cc}{\ca}{\cc}
+\dicea{2}{10}{\ca}{\cd}{\ca}{\cb}\diceb{2}{10}{\ca}{\cc}{\ca}{\cc}
+\dicea{3}{10}{\cc}{\cd}{\cb}{\cb}\diceb{3}{10}{\ca}{\cd}{\cb}{\cd}
+\dicea{4}{10}{\ca}{\ca}{\cc}{\cb}\diceb{4}{10}{\cb}{\cd}{\ca}{\cd}
+\dicea{5}{10}{\cc}{\cb}{\cc}{\cb}\diceb{5}{10}{\cb}{\cd}{\ca}{\cd}
+\dicea{6}{10}{\ca}{\cc}{\cc}{\cb}\diceb{6}{10}{\cb}{\cd}{\ca}{\cc}
+\dicea{7}{10}{\cc}{\cd}{\cd}{\ca}\diceb{7}{10}{\ca}{\cd}{\ca}{\cd}
+\dicea{8}{10}{\cb}{\cb}{\ca}{\cc}\diceb{8}{10}{\cb}{\cc}{\cb}{\cc}
+\dicea{9}{10}{\cd}{\ca}{\cb}{\cd}\diceb{9}{10}{\ca}{\cc}{\cb}{\cd}
+\dicea{10}{10}{\cb}{\cd}{\cb}{\cd}\diceb{10}{10}{\cb}{\cc}{\cb}{\cd}
+\dicea{11}{10}{\cd}{\cc}{\cb}{\cd}\diceb{11}{10}{\cb}{\cc}{\cb}{\cd}
+\dicea{12}{10}{\cb}{\cb}{\cc}{\cd}\diceb{12}{10}{\cb}{\cd}{\cb}{\cc}
+\dicea{13}{10}{\cd}{\cb}{\cd}{\cd}\diceb{13}{10}{\ca}{\cc}{\ca}{\cc}
+\dicea{14}{10}{\ca}{\cd}{\cd}{\cd}\diceb{14}{10}{\ca}{\cc}{\ca}{\cc}
+\dicea{15}{10}{\cc}{\cd}{\cd}{\cc}\diceb{15}{10}{\ca}{\cd}{\cb}{\cd}
+\dicea{0}{11}{\cb}{\cb}{\cb}{\cb}\diceb{0}{11}{\cd}{\cd}{\cb}{\cc}
+\dicea{1}{11}{\cd}{\ca}{\ca}{\ca}\diceb{1}{11}{\cc}{\cd}{\cb}{\cd}
+\dicea{2}{11}{\cb}{\cd}{\ca}{\cb}\diceb{2}{11}{\cc}{\cc}{\ca}{\cc}
+\dicea{3}{11}{\cd}{\cc}{\ca}{\cb}\diceb{3}{11}{\cc}{\cc}{\ca}{\cc}
+\dicea{4}{11}{\cb}{\cb}{\cd}{\ca}\diceb{4}{11}{\cd}{\cd}{\ca}{\cc}
+\dicea{5}{11}{\cd}{\cb}{\cc}{\cb}\diceb{5}{11}{\cd}{\cd}{\ca}{\cd}
+\dicea{6}{11}{\ca}{\cd}{\cc}{\cb}\diceb{6}{11}{\cd}{\cd}{\ca}{\cd}
+\dicea{7}{11}{\cc}{\cd}{\cc}{\cb}\diceb{7}{11}{\cc}{\cd}{\ca}{\cd}
+\dicea{8}{11}{\cb}{\ca}{\cb}{\cd}\diceb{8}{11}{\cd}{\cc}{\cb}{\cd}
+\dicea{9}{11}{\cd}{\ca}{\ca}{\cc}\diceb{9}{11}{\cc}{\cc}{\cb}{\cd}
+\dicea{10}{11}{\ca}{\cc}{\cb}{\cd}\diceb{10}{11}{\cd}{\cc}{\cb}{\cc}
+\dicea{11}{11}{\cc}{\cc}{\cb}{\cd}\diceb{11}{11}{\cd}{\cc}{\cb}{\cd}
+\dicea{12}{11}{\cb}{\cb}{\cd}{\cc}\diceb{12}{11}{\cd}{\cd}{\cb}{\cc}
+\dicea{13}{11}{\cd}{\ca}{\cc}{\cd}\diceb{13}{11}{\cc}{\cd}{\cb}{\cd}
+\dicea{14}{11}{\cb}{\cd}{\cd}{\cd}\diceb{14}{11}{\cc}{\cc}{\ca}{\cc}
+\dicea{15}{11}{\cd}{\cc}{\cd}{\cd}\diceb{15}{11}{\cc}{\cc}{\ca}{\cc}
+\dicea{0}{12}{\cb}{\cb}{\cb}{\cb}\diceb{0}{12}{\cb}{\cb}{\cd}{\cc}
+\dicea{1}{12}{\cd}{\cb}{\cb}{\ca}\diceb{1}{12}{\ca}{\ca}{\cc}{\cc}
+\dicea{2}{12}{\ca}{\cd}{\cb}{\ca}\diceb{2}{12}{\ca}{\ca}{\cc}{\cc}
+\dicea{3}{12}{\cc}{\cd}{\ca}{\ca}\diceb{3}{12}{\ca}{\cb}{\cd}{\cd}
+\dicea{4}{12}{\ca}{\ca}{\cd}{\ca}\diceb{4}{12}{\cb}{\cb}{\cc}{\cd}
+\dicea{5}{12}{\cc}{\cb}{\cd}{\ca}\diceb{5}{12}{\cb}{\cb}{\cc}{\cd}
+\dicea{6}{12}{\ca}{\cc}{\cd}{\ca}\diceb{6}{12}{\cb}{\cb}{\cc}{\cc}
+\dicea{7}{12}{\cc}{\cd}{\cc}{\cb}\diceb{7}{12}{\ca}{\cb}{\cc}{\cd}
+\dicea{8}{12}{\cb}{\cb}{\cb}{\cd}\diceb{8}{12}{\cb}{\ca}{\cd}{\cc}
+\dicea{9}{12}{\cd}{\ca}{\ca}{\cc}\diceb{9}{12}{\ca}{\ca}{\cd}{\cd}
+\dicea{10}{12}{\cb}{\cd}{\ca}{\cc}\diceb{10}{12}{\cb}{\ca}{\cd}{\cd}
+\dicea{11}{12}{\cd}{\cc}{\ca}{\cc}\diceb{11}{12}{\cb}{\ca}{\cd}{\cd}
+\dicea{12}{12}{\cb}{\cb}{\cd}{\cc}\diceb{12}{12}{\cb}{\cb}{\cd}{\cc}
+\dicea{13}{12}{\cd}{\cb}{\cc}{\cc}\diceb{13}{12}{\ca}{\ca}{\cc}{\cc}
+\dicea{14}{12}{\ca}{\cd}{\cc}{\cc}\diceb{14}{12}{\ca}{\ca}{\cc}{\cc}
+\dicea{15}{12}{\cc}{\cd}{\cc}{\cd}\diceb{15}{12}{\ca}{\cb}{\cd}{\cd}
+\dicea{0}{13}{\cb}{\cb}{\ca}{\ca}\diceb{0}{13}{\cd}{\cb}{\cd}{\cc}
+\dicea{1}{13}{\cd}{\ca}{\cb}{\cb}\diceb{1}{13}{\cc}{\cb}{\cd}{\cd}
+\dicea{2}{13}{\cb}{\cd}{\cb}{\ca}\diceb{2}{13}{\cc}{\ca}{\cc}{\cc}
+\dicea{3}{13}{\cd}{\cc}{\cb}{\ca}\diceb{3}{13}{\cc}{\ca}{\cc}{\cc}
+\dicea{4}{13}{\cb}{\cb}{\cc}{\cb}\diceb{4}{13}{\cd}{\cb}{\cc}{\cc}
+\dicea{5}{13}{\cd}{\cb}{\cd}{\ca}\diceb{5}{13}{\cd}{\cb}{\cc}{\cd}
+\dicea{6}{13}{\ca}{\cd}{\cd}{\ca}\diceb{6}{13}{\cd}{\cb}{\cc}{\cd}
+\dicea{7}{13}{\cc}{\cd}{\cd}{\ca}\diceb{7}{13}{\cc}{\cb}{\cc}{\cd}
+\dicea{8}{13}{\cb}{\ca}{\ca}{\cc}\diceb{8}{13}{\cd}{\ca}{\cd}{\cd}
+\dicea{9}{13}{\cd}{\ca}{\cb}{\cd}\diceb{9}{13}{\cc}{\ca}{\cd}{\cd}
+\dicea{10}{13}{\ca}{\cc}{\ca}{\cc}\diceb{10}{13}{\cd}{\ca}{\cd}{\cc}
+\dicea{11}{13}{\cc}{\cc}{\ca}{\cc}\diceb{11}{13}{\cd}{\ca}{\cd}{\cd}
+\dicea{12}{13}{\cb}{\cb}{\cc}{\cd}\diceb{12}{13}{\cd}{\cb}{\cd}{\cc}
+\dicea{13}{13}{\cd}{\ca}{\cd}{\cc}\diceb{13}{13}{\cc}{\cb}{\cd}{\cd}
+\dicea{14}{13}{\cb}{\cd}{\cc}{\cc}\diceb{14}{13}{\cc}{\ca}{\cc}{\cc}
+\dicea{15}{13}{\cd}{\cc}{\cc}{\cc}\diceb{15}{13}{\cc}{\ca}{\cc}{\cc}
+\dicea{0}{14}{\cb}{\cb}{\ca}{\cb}\diceb{0}{14}{\cb}{\cd}{\cd}{\cc}
+\dicea{1}{14}{\cd}{\cb}{\cb}{\cb}\diceb{1}{14}{\ca}{\cc}{\cc}{\cc}
+\dicea{2}{14}{\ca}{\cd}{\cb}{\cb}\diceb{2}{14}{\ca}{\cc}{\cc}{\cc}
+\dicea{3}{14}{\cc}{\cd}{\cb}{\ca}\diceb{3}{14}{\ca}{\cd}{\cd}{\cd}
+\dicea{4}{14}{\cb}{\cb}{\cc}{\cb}\diceb{4}{14}{\cb}{\cd}{\cc}{\cc}
+\dicea{5}{14}{\cd}{\ca}{\cd}{\ca}\diceb{5}{14}{\ca}{\cd}{\cc}{\cd}
+\dicea{6}{14}{\cb}{\cd}{\cd}{\ca}\diceb{6}{14}{\cb}{\cd}{\cc}{\cd}
+\dicea{7}{14}{\cd}{\cc}{\cd}{\ca}\diceb{7}{14}{\cb}{\cd}{\cc}{\cd}
+\dicea{8}{14}{\ca}{\ca}{\cb}{\cd}\diceb{8}{14}{\cb}{\cc}{\cd}{\cd}
+\dicea{9}{14}{\cc}{\cb}{\cb}{\cd}\diceb{9}{14}{\cb}{\cc}{\cd}{\cd}
+\dicea{10}{14}{\ca}{\cc}{\cb}{\cd}\diceb{10}{14}{\cb}{\cc}{\cd}{\cc}
+\dicea{11}{14}{\cc}{\cd}{\ca}{\cc}\diceb{11}{14}{\ca}{\cc}{\cd}{\cd}
+\dicea{12}{14}{\cb}{\cb}{\cd}{\cd}\diceb{12}{14}{\cb}{\cd}{\cd}{\cc}
+\dicea{13}{14}{\cd}{\cb}{\cd}{\cc}\diceb{13}{14}{\ca}{\cc}{\cc}{\cc}
+\dicea{14}{14}{\ca}{\cd}{\cd}{\cc}\diceb{14}{14}{\ca}{\cc}{\cc}{\cc}
+\dicea{15}{14}{\cc}{\cd}{\cc}{\cc}\diceb{15}{14}{\ca}{\cd}{\cd}{\cd}
+\dicea{0}{15}{\cb}{\cb}{\cb}{\ca}\diceb{0}{15}{\cd}{\cd}{\cd}{\cc}
+\dicea{1}{15}{\cd}{\ca}{\ca}{\cb}\diceb{1}{15}{\cc}{\cd}{\cd}{\cd}
+\dicea{2}{15}{\cb}{\cd}{\cb}{\cb}\diceb{2}{15}{\cc}{\cc}{\cc}{\cc}
+\dicea{3}{15}{\cd}{\cc}{\cb}{\cb}\diceb{3}{15}{\cc}{\cc}{\cc}{\cc}
+\dicea{4}{15}{\cb}{\ca}{\cd}{\ca}\diceb{4}{15}{\cd}{\cd}{\cc}{\cd}
+\dicea{5}{15}{\cd}{\ca}{\cc}{\cb}\diceb{5}{15}{\cc}{\cd}{\cc}{\cd}
+\dicea{6}{15}{\ca}{\cc}{\cd}{\ca}\diceb{6}{15}{\cd}{\cd}{\cc}{\cc}
+\dicea{7}{15}{\cc}{\cc}{\cd}{\ca}\diceb{7}{15}{\cd}{\cd}{\cc}{\cd}
+\dicea{8}{15}{\cb}{\cb}{\ca}{\cc}\diceb{8}{15}{\cd}{\cc}{\cd}{\cc}
+\dicea{9}{15}{\cd}{\cb}{\cb}{\cd}\diceb{9}{15}{\cd}{\cc}{\cd}{\cd}
+\dicea{10}{15}{\ca}{\cd}{\cb}{\cd}\diceb{10}{15}{\cd}{\cc}{\cd}{\cd}
+\dicea{11}{15}{\cc}{\cd}{\cb}{\cd}\diceb{11}{15}{\cc}{\cc}{\cd}{\cd}
+\dicea{12}{15}{\cb}{\cb}{\cc}{\cc}\diceb{12}{15}{\cd}{\cd}{\cd}{\cc}
+\dicea{13}{15}{\cd}{\ca}{\cd}{\cd}\diceb{13}{15}{\cc}{\cd}{\cd}{\cd}
+\dicea{14}{15}{\cb}{\cd}{\cd}{\cc}\diceb{14}{15}{\cc}{\cc}{\cc}{\cc}
+\dicea{15}{15}{\cd}{\cc}{\cd}{\cc}\diceb{15}{15}{\cc}{\cc}{\cc}{\cc}
+
+\end{tikzpicture}
+
+\end{document}

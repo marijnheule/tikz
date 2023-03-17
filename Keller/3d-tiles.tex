@@ -1,0 +1,112 @@
+\documentclass[tikz,border=5pt]{standalone}
+
+\usepackage{amsmath}
+\usepackage{tikz,float}
+\usetikzlibrary{arrows}
+\usetikzlibrary{automata}
+\usetikzlibrary{backgrounds}
+\usetikzlibrary{calc}
+\usetikzlibrary{positioning}
+\usetikzlibrary{fit}
+\usepackage{xspace}
+\usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing,angles,quotes}
+\usepackage{xparse}
+
+
+\newif\ifCOLOR
+\COLORtrue %comment out to get black and white version
+
+\ifCOLOR
+\usepackage[colorlinks,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\newcommand{\ground}{blue}
+\else
+\usepackage{hyperref}
+\newcommand{\ground}{black}
+\fi
+
+\definecolor{xred}{rgb}{0.77, 0.12, 0.23}
+\definecolor{xgreen}{rgb}{0.3, 0.6, 0}
+\definecolor{xblue}{rgb}{0., 0.25, 1}
+
+\newcommand{\ca}{\fill[black] (0,0) circle (3.5pt);}
+\newcommand{\cc}{\fill[white] (0,0) circle (3.5pt);}
+\newcommand{\cb}{\fill[xred] (0,0) circle (3.5pt);}
+\newcommand{\cd}{\fill[xgreen] (0,0) circle (3.5pt);}
+
+%\newcommand{\cb}{\fill[black] (-0.11,-0.11) rectangle (0.11,0.11);}
+%\newcommand{\cd}{\fill[white] (-0.11,-0.11) rectangle (0.11,0.11);}
+
+%\newcommand{\cb}{\fill[black] (0,0) circle (3.5pt); \fill[white] (0,0) -- (45:3.5pt) arc (45:225:3.5pt) -- cycle;}
+%\newcommand{\cd}{\fill[white] (0,0) circle (3.5pt); \fill[black] (0,0) -- (45:3.5pt) arc (45:225:3.5pt) -- cycle;}
+
+\newcommand{\dicea}[6]{
+  \draw[fill=white, lightgray] (#1+0.02,#2+0.02) rectangle (#1+.98,#2+.98);
+  \begin{scope}[shift={(#1+0.2,#2+0.8)}]{#3}\end{scope}
+  \begin{scope}[shift={(#1+0.5,#2+0.8)}]{#4}\end{scope}
+  \begin{scope}[shift={(#1+0.8,#2+0.8)}]{#5}\end{scope}
+  \begin{scope}[shift={(#1+0.35,#2+0.5)}]{#6}\end{scope}
+}
+
+\newcommand{\diceb}[6]{
+  \begin{scope}[shift={(#1+0.65,#2+0.5)}]{#3}\end{scope}
+  \begin{scope}[shift={(#1+0.2,#2+0.2)}]{#4}\end{scope}
+  \begin{scope}[shift={(#1+0.5,#2+0.2)}]{#5}\end{scope}
+  \begin{scope}[shift={(#1+0.8,#2+0.2)}]{#6}\end{scope}
+}
+
+\newcommand{\drawbox}[4]{
+    \pgfmathsetmacro \angle {30}
+    \pgfmathsetmacro \xd {{2/3*cos(\angle)}}
+    \pgfmathsetmacro \yd {{2/3*sin(\angle)}}
+    \pgfmathsetmacro \x {{#1-1+(#2-1)*(\xd)}}
+    \pgfmathsetmacro \y {{#3-1+(#2-1)*(\yd)}}
+
+    \draw[fill=#4] (\x,\y) -- (\x+1,\y) -- (\x+1,\y+1) -- (\x,\y+1) -- cycle;
+    \draw[fill=#4] (\x,\y+1) -- (\x+\xd,\y+1+\yd) -- (\x+1+\xd,\y+1+\yd) -- (\x+1,\y+1) -- cycle;
+    \draw[fill=black!40!#4] (\x+1,\y+1) -- (\x+1+\xd,\y+1+\yd) -- (\x+1+\xd,\y+\yd) -- (\x+1,\y) -- cycle;
+}
+
+\newcommand{\drawtop}[4]{
+    \pgfmathsetmacro \angle {30}
+    \pgfmathsetmacro \xd {{2/3*cos(\angle)}}
+    \pgfmathsetmacro \yd {{2/3*sin(\angle)}}
+    \pgfmathsetmacro \x {{#1-1+(#2-1)*(\xd)}}
+    \pgfmathsetmacro \y {{#3-1+(#2-1)*(\yd)}}
+
+   \draw[fill=#4] (\x,\y+1) -- (\x+\xd,\y+1+\yd) -- (\x+1+\xd,\y+1+\yd) -- (\x+1,\y+1) -- cycle;
+}
+
+\newcommand{\drawfront}[4]{
+    \pgfmathsetmacro \angle {30}
+    \pgfmathsetmacro \xd {{2/3*cos(\angle)}}
+    \pgfmathsetmacro \yd {{2/3*sin(\angle)}}
+    \pgfmathsetmacro \x {{#1-1+(#2-1)*(\xd)}}
+    \pgfmathsetmacro \y {{#3-1+(#2-1)*(\yd)}}
+
+    \draw[fill=#4] (\x,\y) -- (\x+1,\y) -- (\x+1,\y+1) -- (\x,\y+1) -- cycle;
+ }
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1.2]
+    \drawbox{0}{1}{1.5}{white}
+
+    \drawbox{1}{2}{1}{white}
+    \drawbox{1}{1}{1}{white}
+
+    \drawbox{1}{1.6}{2}{white}
+
+   \drawfront{1}{1.6}{2}{\ground!70!black}
+
+    \drawbox{2}{2.4}{1.6}{white}
+
+    \drawbox{2}{1.4}{1}{white}
+    \drawtop{2}{1.4}{1}{\ground!70!black}
+
+    \drawbox{2}{0.4}{0.7}{white}
+    \drawtop{2}{0.4}{0.7}{\ground!70!black}
+
+    \end{tikzpicture}
+
+\end{document}
