@@ -1,0 +1,753 @@
+\documentclass[tikz,border=10pt]{standalone}
+
+\usepackage{tikz}
+\usetikzlibrary{angles,calc,intersections,quotes,arrows.meta}
+
+\definecolor{colc}{HTML}{31688e}
+\definecolor{cold}{HTML}{3e4989}
+\definecolor{cola}{HTML}{4ac16d}
+\definecolor{colb}{HTML}{a0da39}
+\definecolor{cole}{HTML}{7e03a8}
+\definecolor{colf}{HTML}{cc4778}
+\definecolor{colg}{HTML}{f89540}
+
+\usepackage{sansmathfonts}
+\usepackage[T1]{fontenc}
+\renewcommand*\familydefault{\sfdefault} 
+
+\newcommand{\syma}{\textcolor{white}{{\scriptsize \raisebox{2.7pt}{$\times\!$}}{\Large $\mathsf{2}$}}}
+\newcommand{\symb}{\textcolor{white}{{\scriptsize \raisebox{2.7pt}{$\times\!$}}{\Large $\mathsf{2}$}{\scriptsize \raisebox{3pt}{$+\!$}}{\Large $\mathsf{1}$}}}
+\newcommand{\symc}{\textcolor{white}{{\Large $\mathsf{1}$}}}
+\newcommand{\symd}{\textcolor{white}{{\scriptsize \raisebox{2.7pt}{$\times\!$}}{\Large $\mathsf{1}$}}}
+\newcommand{\syme}{\textcolor{white}{{\scriptsize \raisebox{3.2pt}{$\times\!$}}{\Large $\mathsf{3}$}}}
+\newcommand{\symf}{\textcolor{white}{{\scriptsize \raisebox{3.2pt}{$\times\!$}}{\Large $\mathsf{3}$}{\scriptsize \raisebox{3pt}{$+\!$}}{\Large $\mathsf{1}$}}}
+\newcommand{\symg}{\textcolor{white}{{\scriptsize \raisebox{3.2pt}{$\times\!$}}{\Large $\mathsf{3}$}{\scriptsize \raisebox{3pt}{$+\!$}}{\Large $\mathsf{2}$}}}
+
+
+\begin{document}
+
+\begin{tikzpicture}[yscale=.6]
+
+
+    \begin{scope}[xshift=3cm, yshift=-40cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=colg](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cole](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cole](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colg](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cold](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symd};
+    \end{scope}
+    
+        \begin{scope}[xshift=3cm, yshift=-42cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cola](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colb](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=cole](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colg](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cole](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+    \end{scope}
+    
+            \begin{scope}[xshift=3cm, yshift=-44cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cola](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colf](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colb](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=colg](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cole](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+    \end{scope}
+    
+                \begin{scope}[xshift=3cm, yshift=-46cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cola](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colf](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colb](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=cole](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+    \end{scope}
+    
+                    \begin{scope}[xshift=3cm, yshift=-48cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cola](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colf](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colb](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+    \end{scope}
+    
+  \begin{scope}[xshift=3cm, yshift=-50cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cola](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colf](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colg](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colb](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+    \end{scope}
+    
+\begin{scope}[xshift=3cm, yshift=-52cm, scale=2, transform shape] 
+  \draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+  \draw[black!85,very thick,fill=cola](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syma};
+  \draw[black!85,very thick,fill=colf](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=colg](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+\end{scope}
+
+\begin{scope}[xshift=3cm, yshift=-54cm, scale=2, transform shape] 
+  \draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+  \draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+  \draw[black!85,very thick,fill=colb](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symb};
+  \draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=colg](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+\end{scope}
+
+\begin{scope}[xshift=3cm, yshift=-56cm, scale=2, transform shape] 
+  \draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+  \draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+  \draw[black!85,very thick,fill=colg](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colb](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symb};
+  \draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=colg](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+\end{scope}
+
+\begin{scope}[xshift=3cm, yshift=-58cm, scale=2, transform shape] 
+  \draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+  \draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+  \draw[black!85,very thick,fill=colg](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=cola](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\syma};
+  \draw[black!85,very thick,fill=colg](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+\end{scope}
+
+\begin{scope}[xshift=3cm, yshift=-60cm, scale=2, transform shape] 
+  \draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+  \draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+  \draw[black!85,very thick,fill=colg](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=cola](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syma};
+  \draw[black!85,very thick,fill=colg](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+\end{scope}
+
+\begin{scope}[xshift=3cm, yshift=-62cm, scale=2, transform shape] 
+  \draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+  \draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+  \draw[black!85,very thick,fill=colg](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=colf](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=cola](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\syma};
+  \draw[black!85,very thick,fill=cold](7,0) rectangle (8,-1); \node at (7.5,-0.5) {\symd};
+\end{scope}
+
+\begin{scope}[xshift=5cm, yshift=-64cm, scale=2, transform shape] 
+  \draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+  \draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+  \draw[black!85,very thick,fill=colg](2,0) rectangle (3,-1); \node at (2.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colg](3,0) rectangle (4,-1); \node at (3.5,-0.5) {\symg};
+  \draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=colf](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symf};
+  \draw[black!85,very thick,fill=cold](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symd};
+\end{scope}
+
+    
+\draw[line width=3,-{Stealth[scale=1.1]}] (19,-32) -- (4,-39);
+\draw[line width=3,-{Stealth[scale=1.1]}] (19.5,-64.5) -- (21,-35);
+
+% ad -> d
+    \begin{scope}[xshift=30cm, yshift=-4cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=cola](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=cold](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symd};
+\draw[black!85,very thick,fill=cold](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symd};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% bd -> gd
+    \begin{scope}[xshift=30cm, yshift=-6.5cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colb](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=cold](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symd};
+\draw[black!85,very thick,fill=colg](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cold](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symd};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% ae -> ea
+    \begin{scope}[xshift=30cm, yshift=-9cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=cola](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=cole](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=cola](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syma};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% af -> eb
+    \begin{scope}[xshift=30cm, yshift=-11.5cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=cola](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colf](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=cole](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colb](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symb};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% ag -> fa   
+    \begin{scope}[xshift=30cm, yshift=-14cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=cola](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colg](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=cola](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syma};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% be -> fb
+    \begin{scope}[xshift=30cm, yshift=-16.5cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colb](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colf](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colb](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symb};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% bf -> ga
+    \begin{scope}[xshift=30cm, yshift=-19cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colb](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=colf](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colg](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=cola](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syma};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% bg -> gb
+    \begin{scope}[xshift=30cm, yshift=-21.5cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colb](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symb};
+\draw[black!85,very thick,fill=colg](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colg](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colb](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symb};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+    \end{scope}
+
+% cg -> cab
+\begin{scope}[xshift=30cm, yshift=-24cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\syme};
+\draw[black!85,very thick,fill=colc](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=colb](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\symb};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+\end{scope}
+
+% cf -> caa
+\begin{scope}[xshift=30cm, yshift=-26.5cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=colf](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symf};
+\draw[black!85,very thick,fill=colc](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cola](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=cola](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\syma};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+\end{scope}
+
+% cg -> cab
+\begin{scope}[xshift=30cm, yshift=-29cm, scale=2, transform shape] 
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1); \node at (0.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=colg](1,0) rectangle (2,-1); \node at (1.5,-0.5) {\symg};
+\draw[black!85,very thick,fill=colc](4,0) rectangle (5,-1); \node at (4.5,-0.5) {\symc};
+\draw[black!85,very thick,fill=cola](5,0) rectangle (6,-1); \node at (5.5,-0.5) {\syma};
+\draw[black!85,very thick,fill=colb](6,0) rectangle (7,-1); \node at (6.5,-0.5) {\symb};
+\draw[line width=3,-{Stealth[scale=1.1]}] (2.25, -0.5) -- (3.75, -0.5);
+\end{scope}
+
+
+\draw[black!85,very thick,fill=colc](0,0) rectangle (1,-1);
+\draw[black!85,very thick,fill=cole](1,0) rectangle (2,-1);
+\draw[black!85,very thick,fill=cole](2,0) rectangle (3,-1);
+\draw[black!85,very thick,fill=cole](3,0) rectangle (4,-1);
+\draw[black!85,very thick,fill=cold](4,0) rectangle (5,-1);
+\draw[black!85,very thick,fill=colc](1,-1) rectangle (2,-2);
+\draw[black!85,very thick,fill=colf](2,-1) rectangle (3,-2);
+\draw[black!85,very thick,fill=colf](3,-1) rectangle (4,-2);
+\draw[black!85,very thick,fill=colg](4,-1) rectangle (5,-2);
+\draw[black!85,very thick,fill=cold](5,-1) rectangle (6,-2);
+\draw[black!85,very thick,fill=colc](1,-2) rectangle (2,-3);
+\draw[black!85,very thick,fill=cola](2,-2) rectangle (3,-3);
+\draw[black!85,very thick,fill=cole](3,-2) rectangle (4,-3);
+\draw[black!85,very thick,fill=colg](4,-2) rectangle (5,-3);
+\draw[black!85,very thick,fill=colg](5,-2) rectangle (6,-3);
+\draw[black!85,very thick,fill=cold](6,-2) rectangle (7,-3);
+\draw[black!85,very thick,fill=colc](2,-3) rectangle (3,-4);
+\draw[black!85,very thick,fill=cole](3,-3) rectangle (4,-4);
+\draw[black!85,very thick,fill=colf](4,-3) rectangle (5,-4);
+\draw[black!85,very thick,fill=colf](5,-3) rectangle (6,-4);
+\draw[black!85,very thick,fill=cold](6,-3) rectangle (7,-4);
+\draw[black!85,very thick,fill=colc](3,-4) rectangle (4,-5);
+\draw[black!85,very thick,fill=colg](4,-4) rectangle (5,-5);
+\draw[black!85,very thick,fill=cole](5,-4) rectangle (6,-5);
+\draw[black!85,very thick,fill=colg](6,-4) rectangle (7,-5);
+\draw[black!85,very thick,fill=cold](7,-4) rectangle (8,-5);
+\draw[black!85,very thick,fill=colc](3,-5) rectangle (4,-6);
+\draw[black!85,very thick,fill=cola](4,-5) rectangle (5,-6);
+\draw[black!85,very thick,fill=colf](5,-5) rectangle (6,-6);
+\draw[black!85,very thick,fill=colg](6,-5) rectangle (7,-6);
+\draw[black!85,very thick,fill=colg](7,-5) rectangle (8,-6);
+\draw[black!85,very thick,fill=cold](8,-5) rectangle (9,-6);
+\draw[black!85,very thick,fill=colc](4,-6) rectangle (5,-7);
+\draw[black!85,very thick,fill=cole](5,-6) rectangle (6,-7);
+\draw[black!85,very thick,fill=colg](6,-6) rectangle (7,-7);
+\draw[black!85,very thick,fill=colg](7,-6) rectangle (8,-7);
+\draw[black!85,very thick,fill=colg](8,-6) rectangle (9,-7);
+\draw[black!85,very thick,fill=cold](9,-6) rectangle (10,-7);
+\draw[black!85,very thick,fill=colc](5,-7) rectangle (6,-8);
+\draw[black!85,very thick,fill=colg](6,-7) rectangle (7,-8);
+\draw[black!85,very thick,fill=colg](7,-7) rectangle (8,-8);
+\draw[black!85,very thick,fill=colg](8,-7) rectangle (9,-8);
+\draw[black!85,very thick,fill=colg](9,-7) rectangle (10,-8);
+\draw[black!85,very thick,fill=cold](10,-7) rectangle (11,-8);
+\draw[black!85,very thick,fill=colc](5,-8) rectangle (6,-9);
+\draw[black!85,very thick,fill=cola](6,-8) rectangle (7,-9);
+\draw[black!85,very thick,fill=colg](7,-8) rectangle (8,-9);
+\draw[black!85,very thick,fill=colg](8,-8) rectangle (9,-9);
+\draw[black!85,very thick,fill=colg](9,-8) rectangle (10,-9);
+\draw[black!85,very thick,fill=colg](10,-8) rectangle (11,-9);
+\draw[black!85,very thick,fill=cold](11,-8) rectangle (12,-9);
+\draw[black!85,very thick,fill=colc](6,-9) rectangle (7,-10);
+\draw[black!85,very thick,fill=colf](7,-9) rectangle (8,-10);
+\draw[black!85,very thick,fill=colf](8,-9) rectangle (9,-10);
+\draw[black!85,very thick,fill=colf](9,-9) rectangle (10,-10);
+\draw[black!85,very thick,fill=colf](10,-9) rectangle (11,-10);
+\draw[black!85,very thick,fill=cold](11,-9) rectangle (12,-10);
+\draw[black!85,very thick,fill=colc](6,-10) rectangle (7,-11);
+\draw[black!85,very thick,fill=cola](7,-10) rectangle (8,-11);
+\draw[black!85,very thick,fill=cole](8,-10) rectangle (9,-11);
+\draw[black!85,very thick,fill=colg](9,-10) rectangle (10,-11);
+\draw[black!85,very thick,fill=cole](10,-10) rectangle (11,-11);
+\draw[black!85,very thick,fill=colg](11,-10) rectangle (12,-11);
+\draw[black!85,very thick,fill=cold](12,-10) rectangle (13,-11);
+\draw[black!85,very thick,fill=colc](7,-11) rectangle (8,-12);
+\draw[black!85,very thick,fill=cole](8,-11) rectangle (9,-12);
+\draw[black!85,very thick,fill=colf](9,-11) rectangle (10,-12);
+\draw[black!85,very thick,fill=cole](10,-11) rectangle (11,-12);
+\draw[black!85,very thick,fill=colf](11,-11) rectangle (12,-12);
+\draw[black!85,very thick,fill=cold](12,-11) rectangle (13,-12);
+\draw[black!85,very thick,fill=colc](8,-12) rectangle (9,-13);
+\draw[black!85,very thick,fill=colg](9,-12) rectangle (10,-13);
+\draw[black!85,very thick,fill=cole](10,-12) rectangle (11,-13);
+\draw[black!85,very thick,fill=cole](11,-12) rectangle (12,-13);
+\draw[black!85,very thick,fill=colg](12,-12) rectangle (13,-13);
+\draw[black!85,very thick,fill=cold](13,-12) rectangle (14,-13);
+\draw[black!85,very thick,fill=colc](8,-13) rectangle (9,-14);
+\draw[black!85,very thick,fill=cola](9,-13) rectangle (10,-14);
+\draw[black!85,very thick,fill=colf](10,-13) rectangle (11,-14);
+\draw[black!85,very thick,fill=colf](11,-13) rectangle (12,-14);
+\draw[black!85,very thick,fill=colg](12,-13) rectangle (13,-14);
+\draw[black!85,very thick,fill=colg](13,-13) rectangle (14,-14);
+\draw[black!85,very thick,fill=cold](14,-13) rectangle (15,-14);
+\draw[black!85,very thick,fill=colc](9,-14) rectangle (10,-15);
+\draw[black!85,very thick,fill=cole](10,-14) rectangle (11,-15);
+\draw[black!85,very thick,fill=colg](11,-14) rectangle (12,-15);
+\draw[black!85,very thick,fill=colf](12,-14) rectangle (13,-15);
+\draw[black!85,very thick,fill=colf](13,-14) rectangle (14,-15);
+\draw[black!85,very thick,fill=cold](14,-14) rectangle (15,-15);
+\draw[black!85,very thick,fill=colc](10,-15) rectangle (11,-16);
+\draw[black!85,very thick,fill=colg](11,-15) rectangle (12,-16);
+\draw[black!85,very thick,fill=colg](12,-15) rectangle (13,-16);
+\draw[black!85,very thick,fill=cole](13,-15) rectangle (14,-16);
+\draw[black!85,very thick,fill=colg](14,-15) rectangle (15,-16);
+\draw[black!85,very thick,fill=cold](15,-15) rectangle (16,-16);
+\draw[black!85,very thick,fill=colc](10,-16) rectangle (11,-17);
+\draw[black!85,very thick,fill=cola](11,-16) rectangle (12,-17);
+\draw[black!85,very thick,fill=colg](12,-16) rectangle (13,-17);
+\draw[black!85,very thick,fill=colf](13,-16) rectangle (14,-17);
+\draw[black!85,very thick,fill=colg](14,-16) rectangle (15,-17);
+\draw[black!85,very thick,fill=colg](15,-16) rectangle (16,-17);
+\draw[black!85,very thick,fill=cold](16,-16) rectangle (17,-17);
+\draw[black!85,very thick,fill=colc](11,-17) rectangle (12,-18);
+\draw[black!85,very thick,fill=colf](12,-17) rectangle (13,-18);
+\draw[black!85,very thick,fill=cole](13,-17) rectangle (14,-18);
+\draw[black!85,very thick,fill=colg](14,-17) rectangle (15,-18);
+\draw[black!85,very thick,fill=colg](15,-17) rectangle (16,-18);
+\draw[black!85,very thick,fill=colg](16,-17) rectangle (17,-18);
+\draw[black!85,very thick,fill=cold](17,-17) rectangle (18,-18);
+\draw[black!85,very thick,fill=colc](11,-18) rectangle (12,-19);
+\draw[black!85,very thick,fill=cola](12,-18) rectangle (13,-19);
+\draw[black!85,very thick,fill=cole](13,-18) rectangle (14,-19);
+\draw[black!85,very thick,fill=colf](14,-18) rectangle (15,-19);
+\draw[black!85,very thick,fill=colf](15,-18) rectangle (16,-19);
+\draw[black!85,very thick,fill=colf](16,-18) rectangle (17,-19);
+\draw[black!85,very thick,fill=cold](17,-18) rectangle (18,-19);
+\draw[black!85,very thick,fill=colc](12,-19) rectangle (13,-20);
+\draw[black!85,very thick,fill=cole](13,-19) rectangle (14,-20);
+\draw[black!85,very thick,fill=cole](14,-19) rectangle (15,-20);
+\draw[black!85,very thick,fill=colg](15,-19) rectangle (16,-20);
+\draw[black!85,very thick,fill=cole](16,-19) rectangle (17,-20);
+\draw[black!85,very thick,fill=colg](17,-19) rectangle (18,-20);
+\draw[black!85,very thick,fill=cold](18,-19) rectangle (19,-20);
+\draw[black!85,very thick,fill=colc](13,-20) rectangle (14,-21);
+\draw[black!85,very thick,fill=colf](14,-20) rectangle (15,-21);
+\draw[black!85,very thick,fill=colg](15,-20) rectangle (16,-21);
+\draw[black!85,very thick,fill=colf](16,-20) rectangle (17,-21);
+\draw[black!85,very thick,fill=colg](17,-20) rectangle (18,-21);
+\draw[black!85,very thick,fill=colg](18,-20) rectangle (19,-21);
+\draw[black!85,very thick,fill=cold](19,-20) rectangle (20,-21);
+\draw[black!85,very thick,fill=colc](13,-21) rectangle (14,-22);
+\draw[black!85,very thick,fill=cola](14,-21) rectangle (15,-22);
+\draw[black!85,very thick,fill=colf](15,-21) rectangle (16,-22);
+\draw[black!85,very thick,fill=cole](16,-21) rectangle (17,-22);
+\draw[black!85,very thick,fill=colg](17,-21) rectangle (18,-22);
+\draw[black!85,very thick,fill=colg](18,-21) rectangle (19,-22);
+\draw[black!85,very thick,fill=colg](19,-21) rectangle (20,-22);
+\draw[black!85,very thick,fill=cold](20,-21) rectangle (21,-22);
+\draw[black!85,very thick,fill=colc](14,-22) rectangle (15,-23);
+\draw[black!85,very thick,fill=cole](15,-22) rectangle (16,-23);
+\draw[black!85,very thick,fill=colf](16,-22) rectangle (17,-23);
+\draw[black!85,very thick,fill=colg](17,-22) rectangle (18,-23);
+\draw[black!85,very thick,fill=colg](18,-22) rectangle (19,-23);
+\draw[black!85,very thick,fill=colg](19,-22) rectangle (20,-23);
+\draw[black!85,very thick,fill=colg](20,-22) rectangle (21,-23);
+\draw[black!85,very thick,fill=cold](21,-22) rectangle (22,-23);
+\draw[black!85,very thick,fill=colc](15,-23) rectangle (16,-24);
+\draw[black!85,very thick,fill=colg](16,-23) rectangle (17,-24);
+\draw[black!85,very thick,fill=colf](17,-23) rectangle (18,-24);
+\draw[black!85,very thick,fill=colf](18,-23) rectangle (19,-24);
+\draw[black!85,very thick,fill=colf](19,-23) rectangle (20,-24);
+\draw[black!85,very thick,fill=colf](20,-23) rectangle (21,-24);
+\draw[black!85,very thick,fill=cold](21,-23) rectangle (22,-24);
+\draw[black!85,very thick,fill=colc](15,-24) rectangle (16,-25);
+\draw[black!85,very thick,fill=cola](16,-24) rectangle (17,-25);
+\draw[black!85,very thick,fill=colg](17,-24) rectangle (18,-25);
+\draw[black!85,very thick,fill=cole](18,-24) rectangle (19,-25);
+\draw[black!85,very thick,fill=colg](19,-24) rectangle (20,-25);
+\draw[black!85,very thick,fill=cole](20,-24) rectangle (21,-25);
+\draw[black!85,very thick,fill=colg](21,-24) rectangle (22,-25);
+\draw[black!85,very thick,fill=cold](22,-24) rectangle (23,-25);
+\draw[black!85,very thick,fill=colc](16,-25) rectangle (17,-26);
+\draw[black!85,very thick,fill=colf](17,-25) rectangle (18,-26);
+\draw[black!85,very thick,fill=cole](18,-25) rectangle (19,-26);
+\draw[black!85,very thick,fill=colf](19,-25) rectangle (20,-26);
+\draw[black!85,very thick,fill=cole](20,-25) rectangle (21,-26);
+\draw[black!85,very thick,fill=colf](21,-25) rectangle (22,-26);
+\draw[black!85,very thick,fill=cold](22,-25) rectangle (23,-26);
+\draw[black!85,very thick,fill=colc](16,-26) rectangle (17,-27);
+\draw[black!85,very thick,fill=cola](17,-26) rectangle (18,-27);
+\draw[black!85,very thick,fill=cole](18,-26) rectangle (19,-27);
+\draw[black!85,very thick,fill=cole](19,-26) rectangle (20,-27);
+\draw[black!85,very thick,fill=colf](20,-26) rectangle (21,-27);
+\draw[black!85,very thick,fill=colg](21,-26) rectangle (22,-27);
+\draw[black!85,very thick,fill=cold](22,-26) rectangle (23,-27);
+\draw[black!85,very thick,fill=colc](17,-27) rectangle (18,-28);
+\draw[black!85,very thick,fill=cole](18,-27) rectangle (19,-28);
+\draw[black!85,very thick,fill=cole](19,-27) rectangle (20,-28);
+\draw[black!85,very thick,fill=cole](20,-27) rectangle (21,-28);
+\draw[black!85,very thick,fill=colg](21,-27) rectangle (22,-28);
+\draw[black!85,very thick,fill=colg](22,-27) rectangle (23,-28);
+\draw[black!85,very thick,fill=cold](23,-27) rectangle (24,-28);
+\draw[black!85,very thick,fill=colc](18,-28) rectangle (19,-29);
+\draw[black!85,very thick,fill=colf](19,-28) rectangle (20,-29);
+\draw[black!85,very thick,fill=colf](20,-28) rectangle (21,-29);
+\draw[black!85,very thick,fill=colg](21,-28) rectangle (22,-29);
+\draw[black!85,very thick,fill=colg](22,-28) rectangle (23,-29);
+\draw[black!85,very thick,fill=colg](23,-28) rectangle (24,-29);
+\draw[black!85,very thick,fill=cold](24,-28) rectangle (25,-29);
+\draw[black!85,very thick,fill=colc](18,-29) rectangle (19,-30);
+\draw[black!85,very thick,fill=cola](19,-29) rectangle (20,-30);
+\draw[black!85,very thick,fill=cole](20,-29) rectangle (21,-30);
+\draw[black!85,very thick,fill=colg](21,-29) rectangle (22,-30);
+\draw[black!85,very thick,fill=colg](22,-29) rectangle (23,-30);
+\draw[black!85,very thick,fill=colg](23,-29) rectangle (24,-30);
+\draw[black!85,very thick,fill=colg](24,-29) rectangle (25,-30);
+\draw[black!85,very thick,fill=cold](25,-29) rectangle (26,-30);
+\draw[black!85,very thick,fill=colc](19,-30) rectangle (20,-31);
+\draw[black!85,very thick,fill=cole](20,-30) rectangle (21,-31);
+\draw[black!85,very thick,fill=colf](21,-30) rectangle (22,-31);
+\draw[black!85,very thick,fill=colf](22,-30) rectangle (23,-31);
+\draw[black!85,very thick,fill=colf](23,-30) rectangle (24,-31);
+\draw[black!85,very thick,fill=colf](24,-30) rectangle (25,-31);
+\draw[black!85,very thick,fill=cold](25,-30) rectangle (26,-31);
+\draw[black!85,very thick,fill=colc](20,-31) rectangle (21,-32);
+\draw[black!85,very thick,fill=colg](21,-31) rectangle (22,-32);
+\draw[black!85,very thick,fill=cole](22,-31) rectangle (23,-32);
+\draw[black!85,very thick,fill=colg](23,-31) rectangle (24,-32);
+\draw[black!85,very thick,fill=cole](24,-31) rectangle (25,-32);
+\draw[black!85,very thick,fill=colg](25,-31) rectangle (26,-32);
+\draw[black!85,very thick,fill=cold](26,-31) rectangle (27,-32);
+\draw[black!85,very thick,fill=colc](20,-32) rectangle (21,-33);
+\draw[black!85,very thick,fill=cola](21,-32) rectangle (22,-33);
+\draw[black!85,very thick,fill=colf](22,-32) rectangle (23,-33);
+\draw[black!85,very thick,fill=colg](23,-32) rectangle (24,-33);
+\draw[black!85,very thick,fill=colf](24,-32) rectangle (25,-33);
+\draw[black!85,very thick,fill=colg](25,-32) rectangle (26,-33);
+\draw[black!85,very thick,fill=colg](26,-32) rectangle (27,-33);
+\draw[black!85,very thick,fill=cold](27,-32) rectangle (28,-33);
+\draw[black!85,very thick,fill=colc](21,-33) rectangle (22,-34);
+\draw[black!85,very thick,fill=cole](22,-33) rectangle (23,-34);
+\draw[black!85,very thick,fill=colg](23,-33) rectangle (24,-34);
+\draw[black!85,very thick,fill=colg](24,-33) rectangle (25,-34);
+\draw[black!85,very thick,fill=colf](25,-33) rectangle (26,-34);
+\draw[black!85,very thick,fill=colf](26,-33) rectangle (27,-34);
+\draw[black!85,very thick,fill=cold](27,-33) rectangle (28,-34);
+\draw[black!85,very thick,fill=colc](22,-34) rectangle (23,-35);
+\draw[black!85,very thick,fill=colg](23,-34) rectangle (24,-35);
+\draw[black!85,very thick,fill=colg](24,-34) rectangle (25,-35);
+\draw[black!85,very thick,fill=colg](25,-34) rectangle (26,-35);
+\draw[black!85,very thick,fill=cole](26,-34) rectangle (27,-35);
+\draw[black!85,very thick,fill=colg](27,-34) rectangle (28,-35);
+\draw[black!85,very thick,fill=cold](28,-34) rectangle (29,-35);
+\draw[black!85,very thick,fill=colc](22,-35) rectangle (23,-36);
+\draw[black!85,very thick,fill=cola](23,-35) rectangle (24,-36);
+\draw[black!85,very thick,fill=colg](24,-35) rectangle (25,-36);
+\draw[black!85,very thick,fill=colg](25,-35) rectangle (26,-36);
+\draw[black!85,very thick,fill=colf](26,-35) rectangle (27,-36);
+\draw[black!85,very thick,fill=colg](27,-35) rectangle (28,-36);
+\draw[black!85,very thick,fill=colg](28,-35) rectangle (29,-36);
+\draw[black!85,very thick,fill=cold](29,-35) rectangle (30,-36);
+\draw[black!85,very thick,fill=colc](23,-36) rectangle (24,-37);
+\draw[black!85,very thick,fill=colf](24,-36) rectangle (25,-37);
+\draw[black!85,very thick,fill=colf](25,-36) rectangle (26,-37);
+\draw[black!85,very thick,fill=cole](26,-36) rectangle (27,-37);
+\draw[black!85,very thick,fill=colg](27,-36) rectangle (28,-37);
+\draw[black!85,very thick,fill=colg](28,-36) rectangle (29,-37);
+\draw[black!85,very thick,fill=colg](29,-36) rectangle (30,-37);
+\draw[black!85,very thick,fill=cold](30,-36) rectangle (31,-37);
+\draw[black!85,very thick,fill=colc](23,-37) rectangle (24,-38);
+\draw[black!85,very thick,fill=cola](24,-37) rectangle (25,-38);
+\draw[black!85,very thick,fill=cole](25,-37) rectangle (26,-38);
+\draw[black!85,very thick,fill=colf](26,-37) rectangle (27,-38);
+\draw[black!85,very thick,fill=colg](27,-37) rectangle (28,-38);
+\draw[black!85,very thick,fill=colg](28,-37) rectangle (29,-38);
+\draw[black!85,very thick,fill=colg](29,-37) rectangle (30,-38);
+\draw[black!85,very thick,fill=colg](30,-37) rectangle (31,-38);
+\draw[black!85,very thick,fill=cold](31,-37) rectangle (32,-38);
+\draw[black!85,very thick,fill=colc](24,-38) rectangle (25,-39);
+\draw[black!85,very thick,fill=cole](25,-38) rectangle (26,-39);
+\draw[black!85,very thick,fill=cole](26,-38) rectangle (27,-39);
+\draw[black!85,very thick,fill=colg](27,-38) rectangle (28,-39);
+\draw[black!85,very thick,fill=colg](28,-38) rectangle (29,-39);
+\draw[black!85,very thick,fill=colg](29,-38) rectangle (30,-39);
+\draw[black!85,very thick,fill=colg](30,-38) rectangle (31,-39);
+\draw[black!85,very thick,fill=colg](31,-38) rectangle (32,-39);
+\draw[black!85,very thick,fill=cold](32,-38) rectangle (33,-39);
+\draw[black!85,very thick,fill=colc](25,-39) rectangle (26,-40);
+\draw[black!85,very thick,fill=colf](26,-39) rectangle (27,-40);
+\draw[black!85,very thick,fill=colg](27,-39) rectangle (28,-40);
+\draw[black!85,very thick,fill=colg](28,-39) rectangle (29,-40);
+\draw[black!85,very thick,fill=colg](29,-39) rectangle (30,-40);
+\draw[black!85,very thick,fill=colg](30,-39) rectangle (31,-40);
+\draw[black!85,very thick,fill=colg](31,-39) rectangle (32,-40);
+\draw[black!85,very thick,fill=colg](32,-39) rectangle (33,-40);
+\draw[black!85,very thick,fill=cold](33,-39) rectangle (34,-40);
+\draw[black!85,very thick,fill=colc](25,-40) rectangle (26,-41);
+\draw[black!85,very thick,fill=cola](26,-40) rectangle (27,-41);
+\draw[black!85,very thick,fill=colf](27,-40) rectangle (28,-41);
+\draw[black!85,very thick,fill=colf](28,-40) rectangle (29,-41);
+\draw[black!85,very thick,fill=colf](29,-40) rectangle (30,-41);
+\draw[black!85,very thick,fill=colf](30,-40) rectangle (31,-41);
+\draw[black!85,very thick,fill=colf](31,-40) rectangle (32,-41);
+\draw[black!85,very thick,fill=colf](32,-40) rectangle (33,-41);
+\draw[black!85,very thick,fill=cold](33,-40) rectangle (34,-41);
+\draw[black!85,very thick,fill=colc](26,-41) rectangle (27,-42);
+\draw[black!85,very thick,fill=cole](27,-41) rectangle (28,-42);
+\draw[black!85,very thick,fill=colg](28,-41) rectangle (29,-42);
+\draw[black!85,very thick,fill=cole](29,-41) rectangle (30,-42);
+\draw[black!85,very thick,fill=colg](30,-41) rectangle (31,-42);
+\draw[black!85,very thick,fill=cole](31,-41) rectangle (32,-42);
+\draw[black!85,very thick,fill=colg](32,-41) rectangle (33,-42);
+\draw[black!85,very thick,fill=cold](33,-41) rectangle (34,-42);
+\draw[black!85,very thick,fill=colc](27,-42) rectangle (28,-43);
+\draw[black!85,very thick,fill=colg](28,-42) rectangle (29,-43);
+\draw[black!85,very thick,fill=colf](29,-42) rectangle (30,-43);
+\draw[black!85,very thick,fill=colg](30,-42) rectangle (31,-43);
+\draw[black!85,very thick,fill=colf](31,-42) rectangle (32,-43);
+\draw[black!85,very thick,fill=colg](32,-42) rectangle (33,-43);
+\draw[black!85,very thick,fill=colg](33,-42) rectangle (34,-43);
+\draw[black!85,very thick,fill=cold](34,-42) rectangle (35,-43);
+\draw[black!85,very thick,fill=colc](27,-43) rectangle (28,-44);
+\draw[black!85,very thick,fill=cola](28,-43) rectangle (29,-44);
+\draw[black!85,very thick,fill=colg](29,-43) rectangle (30,-44);
+\draw[black!85,very thick,fill=colf](30,-43) rectangle (31,-44);
+\draw[black!85,very thick,fill=cole](31,-43) rectangle (32,-44);
+\draw[black!85,very thick,fill=colg](32,-43) rectangle (33,-44);
+\draw[black!85,very thick,fill=colg](33,-43) rectangle (34,-44);
+\draw[black!85,very thick,fill=colg](34,-43) rectangle (35,-44);
+\draw[black!85,very thick,fill=cold](35,-43) rectangle (36,-44);
+\draw[black!85,very thick,fill=colc](28,-44) rectangle (29,-45);
+\draw[black!85,very thick,fill=colf](29,-44) rectangle (30,-45);
+\draw[black!85,very thick,fill=cole](30,-44) rectangle (31,-45);
+\draw[black!85,very thick,fill=colf](31,-44) rectangle (32,-45);
+\draw[black!85,very thick,fill=colg](32,-44) rectangle (33,-45);
+\draw[black!85,very thick,fill=colg](33,-44) rectangle (34,-45);
+\draw[black!85,very thick,fill=colg](34,-44) rectangle (35,-45);
+\draw[black!85,very thick,fill=colg](35,-44) rectangle (36,-45);
+\draw[black!85,very thick,fill=cold](36,-44) rectangle (37,-45);
+\draw[black!85,very thick,fill=colc](28,-45) rectangle (29,-46);
+\draw[black!85,very thick,fill=cola](29,-45) rectangle (30,-46);
+\draw[black!85,very thick,fill=cole](30,-45) rectangle (31,-46);
+\draw[black!85,very thick,fill=cole](31,-45) rectangle (32,-46);
+\draw[black!85,very thick,fill=colg](32,-45) rectangle (33,-46);
+\draw[black!85,very thick,fill=colg](33,-45) rectangle (34,-46);
+\draw[black!85,very thick,fill=colg](34,-45) rectangle (35,-46);
+\draw[black!85,very thick,fill=colg](35,-45) rectangle (36,-46);
+\draw[black!85,very thick,fill=colg](36,-45) rectangle (37,-46);
+\draw[black!85,very thick,fill=cold](37,-45) rectangle (38,-46);
+\draw[black!85,very thick,fill=colc](29,-46) rectangle (30,-47);
+\draw[black!85,very thick,fill=cole](30,-46) rectangle (31,-47);
+\draw[black!85,very thick,fill=cole](31,-46) rectangle (32,-47);
+\draw[black!85,very thick,fill=colf](32,-46) rectangle (33,-47);
+\draw[black!85,very thick,fill=colf](33,-46) rectangle (34,-47);
+\draw[black!85,very thick,fill=colf](34,-46) rectangle (35,-47);
+\draw[black!85,very thick,fill=colf](35,-46) rectangle (36,-47);
+\draw[black!85,very thick,fill=colf](36,-46) rectangle (37,-47);
+\draw[black!85,very thick,fill=cold](37,-46) rectangle (38,-47);
+\draw[black!85,very thick,fill=colc](30,-47) rectangle (31,-48);
+\draw[black!85,very thick,fill=colf](31,-47) rectangle (32,-48);
+\draw[black!85,very thick,fill=colg](32,-47) rectangle (33,-48);
+\draw[black!85,very thick,fill=cole](33,-47) rectangle (34,-48);
+\draw[black!85,very thick,fill=colg](34,-47) rectangle (35,-48);
+\draw[black!85,very thick,fill=cole](35,-47) rectangle (36,-48);
+\draw[black!85,very thick,fill=colg](36,-47) rectangle (37,-48);
+\draw[black!85,very thick,fill=cold](37,-47) rectangle (38,-48);
+\draw[black!85,very thick,fill=colc](30,-48) rectangle (31,-49);
+\draw[black!85,very thick,fill=cola](31,-48) rectangle (32,-49);
+\draw[black!85,very thick,fill=colf](32,-48) rectangle (33,-49);
+\draw[black!85,very thick,fill=cole](33,-48) rectangle (34,-49);
+\draw[black!85,very thick,fill=colf](34,-48) rectangle (35,-49);
+\draw[black!85,very thick,fill=cole](35,-48) rectangle (36,-49);
+\draw[black!85,very thick,fill=colf](36,-48) rectangle (37,-49);
+\draw[black!85,very thick,fill=cold](37,-48) rectangle (38,-49);
+\draw[black!85,very thick,fill=colc](31,-49) rectangle (32,-50);
+\draw[black!85,very thick,fill=cole](32,-49) rectangle (33,-50);
+\draw[black!85,very thick,fill=colf](33,-49) rectangle (34,-50);
+\draw[black!85,very thick,fill=colg](34,-49) rectangle (35,-50);
+\draw[black!85,very thick,fill=cole](35,-49) rectangle (36,-50);
+\draw[black!85,very thick,fill=cole](36,-49) rectangle (37,-50);
+\draw[black!85,very thick,fill=colg](37,-49) rectangle (38,-50);
+\draw[black!85,very thick,fill=cold](38,-49) rectangle (39,-50);
+\draw[black!85,very thick,fill=colc](32,-50) rectangle (33,-51);
+\draw[black!85,very thick,fill=colg](33,-50) rectangle (34,-51);
+\draw[black!85,very thick,fill=colf](34,-50) rectangle (35,-51);
+\draw[black!85,very thick,fill=cole](35,-50) rectangle (36,-51);
+\draw[black!85,very thick,fill=cole](36,-50) rectangle (37,-51);
+\draw[black!85,very thick,fill=colf](37,-50) rectangle (38,-51);
+\draw[black!85,very thick,fill=cold](38,-50) rectangle (39,-51);
+\draw[black!85,very thick,fill=colc](32,-51) rectangle (33,-52);
+\draw[black!85,very thick,fill=cola](33,-51) rectangle (34,-52);
+\draw[black!85,very thick,fill=colg](34,-51) rectangle (35,-52);
+\draw[black!85,very thick,fill=cole](35,-51) rectangle (36,-52);
+\draw[black!85,very thick,fill=cole](36,-51) rectangle (37,-52);
+\draw[black!85,very thick,fill=cole](37,-51) rectangle (38,-52);
+\draw[black!85,very thick,fill=colg](38,-51) rectangle (39,-52);
+\draw[black!85,very thick,fill=cold](39,-51) rectangle (40,-52);
+\draw[black!85,very thick,fill=colc](33,-52) rectangle (34,-53);
+\draw[black!85,very thick,fill=colf](34,-52) rectangle (35,-53);
+\draw[black!85,very thick,fill=cole](35,-52) rectangle (36,-53);
+\draw[black!85,very thick,fill=cole](36,-52) rectangle (37,-53);
+\draw[black!85,very thick,fill=cole](37,-52) rectangle (38,-53);
+\draw[black!85,very thick,fill=colf](38,-52) rectangle (39,-53);
+\draw[black!85,very thick,fill=cold](39,-52) rectangle (40,-53);
+\draw[black!85,very thick,fill=colc](33,-53) rectangle (34,-54);
+\draw[black!85,very thick,fill=cola](34,-53) rectangle (35,-54);
+\draw[black!85,very thick,fill=cole](35,-53) rectangle (36,-54);
+\draw[black!85,very thick,fill=cole](36,-53) rectangle (37,-54);
+\draw[black!85,very thick,fill=cole](37,-53) rectangle (38,-54);
+\draw[black!85,very thick,fill=cole](38,-53) rectangle (39,-54);
+\draw[black!85,very thick,fill=colg](39,-53) rectangle (40,-54);
+\draw[black!85,very thick,fill=cold](40,-53) rectangle (41,-54);
+\draw[black!85,very thick,fill=colc](34,-54) rectangle (35,-55);
+\draw[black!85,very thick,fill=cole](35,-54) rectangle (36,-55);
+\draw[black!85,very thick,fill=cole](36,-54) rectangle (37,-55);
+\draw[black!85,very thick,fill=cole](37,-54) rectangle (38,-55);
+\draw[black!85,very thick,fill=cole](38,-54) rectangle (39,-55);
+\draw[black!85,very thick,fill=colf](39,-54) rectangle (40,-55);
+\draw[black!85,very thick,fill=cold](40,-54) rectangle (41,-55);
+\draw[black!85,very thick,fill=colc](35,-55) rectangle (36,-56);
+\draw[black!85,very thick,fill=colf](36,-55) rectangle (37,-56);
+\draw[black!85,very thick,fill=colf](37,-55) rectangle (38,-56);
+\draw[black!85,very thick,fill=colf](38,-55) rectangle (39,-56);
+\draw[black!85,very thick,fill=colg](39,-55) rectangle (40,-56);
+\draw[black!85,very thick,fill=cold](40,-55) rectangle (41,-56);
+\draw[black!85,very thick,fill=colc](35,-56) rectangle (36,-57);
+\draw[black!85,very thick,fill=cola](36,-56) rectangle (37,-57);
+\draw[black!85,very thick,fill=cole](37,-56) rectangle (38,-57);
+\draw[black!85,very thick,fill=colg](38,-56) rectangle (39,-57);
+\draw[black!85,very thick,fill=colf](39,-56) rectangle (40,-57);
+\draw[black!85,very thick,fill=cold](40,-56) rectangle (41,-57);
+\draw[black!85,very thick,fill=colc](36,-57) rectangle (37,-58);
+\draw[black!85,very thick,fill=cole](37,-57) rectangle (38,-58);
+\draw[black!85,very thick,fill=colf](38,-57) rectangle (39,-58);
+\draw[black!85,very thick,fill=cole](39,-57) rectangle (40,-58);
+\draw[black!85,very thick,fill=colg](40,-57) rectangle (41,-58);
+\draw[black!85,very thick,fill=cold](41,-57) rectangle (42,-58);
+\draw[black!85,very thick,fill=colc](37,-58) rectangle (38,-59);
+\draw[black!85,very thick,fill=colg](38,-58) rectangle (39,-59);
+\draw[black!85,very thick,fill=cole](39,-58) rectangle (40,-59);
+\draw[black!85,very thick,fill=colf](40,-58) rectangle (41,-59);
+\draw[black!85,very thick,fill=cold](41,-58) rectangle (42,-59);
+\draw[black!85,very thick,fill=colc](37,-59) rectangle (38,-60);
+\draw[black!85,very thick,fill=cola](38,-59) rectangle (39,-60);
+\draw[black!85,very thick,fill=colf](39,-59) rectangle (40,-60);
+\draw[black!85,very thick,fill=colg](40,-59) rectangle (41,-60);
+\draw[black!85,very thick,fill=cold](41,-59) rectangle (42,-60);
+\draw[black!85,very thick,fill=colc](38,-60) rectangle (39,-61);
+\draw[black!85,very thick,fill=cole](39,-60) rectangle (40,-61);
+\draw[black!85,very thick,fill=colg](40,-60) rectangle (41,-61);
+\draw[black!85,very thick,fill=colg](41,-60) rectangle (42,-61);
+\draw[black!85,very thick,fill=cold](42,-60) rectangle (43,-61);
+\draw[black!85,very thick,fill=colc](39,-61) rectangle (40,-62);
+\draw[black!85,very thick,fill=colg](40,-61) rectangle (41,-62);
+\draw[black!85,very thick,fill=colg](41,-61) rectangle (42,-62);
+\draw[black!85,very thick,fill=colg](42,-61) rectangle (43,-62);
+\draw[black!85,very thick,fill=cold](43,-61) rectangle (44,-62);
+\draw[black!85,very thick,fill=colc](39,-62) rectangle (40,-63);
+\draw[black!85,very thick,fill=cola](40,-62) rectangle (41,-63);
+\draw[black!85,very thick,fill=colg](41,-62) rectangle (42,-63);
+\draw[black!85,very thick,fill=colg](42,-62) rectangle (43,-63);
+\draw[black!85,very thick,fill=colg](43,-62) rectangle (44,-63);
+\draw[black!85,very thick,fill=cold](44,-62) rectangle (45,-63);
+\draw[black!85,very thick,fill=colc](40,-63) rectangle (41,-64);
+\draw[black!85,very thick,fill=colf](41,-63) rectangle (42,-64);
+\draw[black!85,very thick,fill=colf](42,-63) rectangle (43,-64);
+\draw[black!85,very thick,fill=colf](43,-63) rectangle (44,-64);
+\draw[black!85,very thick,fill=cold](44,-63) rectangle (45,-64);
+\draw[black!85,very thick,fill=colc](40,-64) rectangle (41,-65);
+\draw[black!85,very thick,fill=cola](41,-64) rectangle (42,-65);
+\draw[black!85,very thick,fill=cole](42,-64) rectangle (43,-65);
+\draw[black!85,very thick,fill=colg](43,-64) rectangle (44,-65);
+\draw[black!85,very thick,fill=cold](44,-64) rectangle (45,-65);
+\draw[black!85,very thick,fill=colc](41,-65) rectangle (42,-66);
+\draw[black!85,very thick,fill=cole](42,-65) rectangle (43,-66);
+\draw[black!85,very thick,fill=colf](43,-65) rectangle (44,-66);
+\draw[black!85,very thick,fill=cold](44,-65) rectangle (45,-66);
+\draw[black!85,very thick,fill=colc](42,-66) rectangle (43,-67);
+\draw[black!85,very thick,fill=colg](43,-66) rectangle (44,-67);
+\draw[black!85,very thick,fill=cold](44,-66) rectangle (45,-67);
+\draw[black!85,very thick,fill=colc](42,-67) rectangle (43,-68);
+\draw[black!85,very thick,fill=cola](43,-67) rectangle (44,-68);
+\draw[black!85,very thick,fill=colg](44,-67) rectangle (45,-68);
+\draw[black!85,very thick,fill=cold](45,-67) rectangle (46,-68);
+\draw[black!85,very thick,fill=colc](43,-68) rectangle (44,-69);
+\draw[black!85,very thick,fill=colf](44,-68) rectangle (45,-69);
+\draw[black!85,very thick,fill=cold](45,-68) rectangle (46,-69);
+\draw[black!85,very thick,fill=colc](43,-69) rectangle (44,-70);
+\draw[black!85,very thick,fill=cola](44,-69) rectangle (45,-70);
+\draw[black!85,very thick,fill=cold](45,-69) rectangle (46,-70);
+\draw[black!85,very thick,fill=colc](44,-70) rectangle (45,-71);
+\draw[black!85,very thick,fill=cold](45,-70) rectangle (46,-71);
+
+\end{tikzpicture}
+
+\end{document}
