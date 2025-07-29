@@ -1,0 +1,98 @@
+\documentclass[border=5pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=2.5,rotate=90]
+     \tikzstyle{every circle node}=[circle,draw=black,inner sep=1.5pt,minimum size=2pt]
+    \node [circle,fill=black] (a) at (0,0) {};
+    \node [circle,fill=black] (b) at (2.661, 0.167){};
+    \node [circle,fill=yellow] (c) at (0.998, 0.0625) {};
+    \node [circle,fill=cyan] (d) at (0.445, 0.896) {};
+    \node [circle,fill=magenta] (e) at (2.108, 1.000) {};
+    \node [circle,fill=yellow] (f) at (1.663, 0.104) {};
+    \node [circle,fill=cyan] (g) at (0.741, 1.493) {};
+    \node [circle,fill=magenta] (h) at (1.740, 1.555) {};
+    \node [circle,fill=cyan] (i) at (1.110, 0.937) {};
+    \node [circle,fill=magenta] (j) at (1.443, 0.958) {};
+    \node [circle,fill=yellow] (k) at (1.294, 0.660) {};
+
+\draw[thick, blue!40!black] (a)--(c)--(d)--(a) (b)--(e)--(f)--(b) (c) to[bend right=15] (j) (j) to[bend right=15] (d)
+   (e) to[bend right=15] (i) (i) to[bend right=15] (f)    (g)--(h) (h) to[bend left=15] (k) (k) to[bend left=15](g);
+
+\draw[blue!40!black] (h) to[bend right=3] (a) (a) to[bend right=3](e) (d) to[bend right=3] (b) (b) to[bend right=3](g);
+
+\draw[blue!40!black] (i) -- (j)--(k)--(i);
+
+\draw[blue!40!black] (a) to [bend left=15] (g);
+\draw[blue!40!black] (a) to [bend left=15] (f);
+\draw[blue!40!black] (f) to [bend left=20] (g);
+
+\draw[blue!40!black] (b) to [bend right=15] (c);
+\draw[blue!40!black] (b) to [bend right=15] (h);
+\draw[blue!40!black] (c) to [bend right=20] (h);
+
+\draw[blue!40!black] (d) to [bend left=20] (e);
+
+    \node [circle,fill=black] (a) at (0,0) {};
+    \node [circle,fill=black] (b) at (2.661, 0.167){};
+    \node [circle,fill=yellow] (c) at (0.998, 0.0625) {};
+    \node [circle,fill=cyan] (d) at (0.445, 0.896) {};
+    \node [circle,fill=magenta] (e) at (2.108, 1.000) {};
+    \node [circle,fill=yellow] (f) at (1.663, 0.104) {};
+    \node [circle,fill=cyan] (g) at (0.741, 1.493) {};
+    \node [circle,fill=magenta] (h) at (1.740, 1.555) {};
+    \node [circle,fill=cyan] (i) at (1.110, 0.937) {};
+    \node [circle,fill=magenta] (j) at (1.443, 0.958) {};
+    \node [circle,fill=yellow] (k) at (1.294, 0.660) {};
+
+
+
+    \node [circle,fill=black] (aa) at (0,0) {};
+    \node [circle,fill=white] (bb) at (2.661, -0.167){};
+    \node [circle,fill=yellow] (cc) at (0.998, -0.0625) {};
+    \node [circle,fill=cyan] (dd) at (0.445, -0.896) {};
+    \node [circle,fill=magenta] (ee) at (2.108, -1.000) {};
+    \node [circle,fill=yellow] (ff) at (1.663, -0.104) {};
+    \node [circle,fill=cyan] (gg) at (0.741, -1.493) {};
+    \node [circle,fill=magenta] (hh) at (1.740, -1.555) {};
+    \node [circle,fill=cyan] (ii) at (1.110, -0.937) {};
+    \node [circle,fill=magenta] (jj) at (1.443, -0.958) {};
+    \node [circle,fill=yellow] (kk) at (1.294, -0.660) {};
+
+\draw[ thick, blue!40!black] (aa)--(cc)--(dd)--(aa) (bb)--(ee)--(ff)--(bb) (cc) to[bend left=15] (jj) (jj) to[bend left=15] (dd)
+   (ee) to[bend left=15] (ii) (ii) to[bend left=15] (ff)    (gg)--(hh) (hh) to[bend right=15] (kk) (kk) to[bend right=15](gg);
+
+\draw[blue!40!black] (hh) to[bend left=3] (aa) (aa) to[bend left=3](ee) (dd) to[bend left=3] (bb) (bb) to[bend left=3](gg);
+
+\draw[blue!40!black] (ii) -- (jj)--(kk)--(ii);
+
+\draw[blue!40!black] (aa) to [bend right=15] (gg);
+\draw[blue!40!black] (aa) to [bend right=15] (ff);
+\draw[blue!40!black] (ff) to [bend right=20] (gg);
+
+\draw[blue!40!black] (bb) to [bend left=15] (cc);
+\draw[blue!40!black] (bb) to [bend left=15] (hh);
+\draw[blue!40!black] (cc) to [bend left=20] (hh);
+
+\draw[blue!40!black] (dd) to [bend right=20] (ee);
+
+    \node [circle,fill=black] (aa) at (0,0) {};
+    \node [circle,fill=white] (bb) at (2.661, -0.167){};
+    \node [circle,fill=yellow] (cc) at (0.998, -0.0625) {};
+    \node [circle,fill=cyan] (dd) at (0.445, -0.896) {};
+    \node [circle,fill=magenta] (ee) at (2.108, -1.000) {};
+    \node [circle,fill=yellow] (ff) at (1.663, -0.104) {};
+    \node [circle,fill=cyan] (gg) at (0.741, -1.493) {};
+    \node [circle,fill=magenta] (hh) at (1.740, -1.555) {};
+    \node [circle,fill=cyan] (ii) at (1.110, -0.937) {};
+    \node [circle,fill=magenta] (jj) at (1.443, -0.958) {};
+    \node [circle,fill=yellow] (kk) at (1.294, -0.660) {};
+
+\draw[blue!40!black] (b) to (bb);
+
+\end{tikzpicture}
+
+\end{document}
+
