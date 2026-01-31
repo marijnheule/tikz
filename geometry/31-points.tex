@@ -19,7 +19,7 @@
     dot/.style={circle,inner sep=1pt,fill,label={\tiny #1},name=#1}}
 
 \coordinate (h) at (0,1);
-
+\path[name path=circle] (0,0) circle (3);
 
 \node[dot, fill=blue!100!red] (z) at (0,0) {\slabel{0}};
 \node[dot, fill=blue!60!red] (p9) at (0.3,1) {\slabel{9}};
@@ -53,8 +53,6 @@
 \node[dot, fill=blue!40!red] (p13) at (i9) {\mlabel{13}};
 \node[dot, fill=blue!40!red] (m7) at ($(0,0)!1!120:(i9)$) {\mlabel{\overline{7}}};
 \node[dot, fill=blue!40!red] (m13) at ($(0,0)!1!240:(i9)$) {\llabel{\overline{13}}};
-
-\path[name path=circle] (0,0) circle (3.5);
 
 \path[name path=l1] (m2) -- ($(m2)!1.5!(p10)$);
 \path[name intersections={of=l1 and circle, by=i8}];
